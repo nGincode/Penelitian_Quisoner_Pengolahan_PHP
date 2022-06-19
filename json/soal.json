@@ -74,7 +74,8 @@
             "isi": "Frekuensi Pesan",
             "subjudul": "<div style='text-align: left;'>1. Dari daftar pernyataan yang ada dikelompokan dalam 5 (lima) bagian indikator pengukuran<br>&nbsp;&nbsp;&nbsp;&nbsp;a.) Sangat Setuju              = 5<br>&nbsp;&nbsp;&nbsp;&nbsp;b.) Setuju                           = 4<br>&nbsp;&nbsp;&nbsp;&nbsp;c.) Ragu-Ragu                    = 3<br>&nbsp;&nbsp;&nbsp;&nbsp;d.) Tidak Setuju                 = 2<br>&nbsp;&nbsp;&nbsp;&nbsp;e.) Sangat Tidak Setuju    = 1<br>2. Semakin tinggi skor maka semakin tinggi bobot nilainya<br>3. Pilih satu jawaban yang menurut  Bapak/Ibu/Sdr/i  yang paling sesuai</div>",
             "bagian": 3,
-            "hitung": 1
+            "hitung": 1,
+            "hubungan": "x1"
         }
 
     },
@@ -82,6 +83,7 @@
         "id": 10,
         "bagian": 3,
         "hitung": 1,
+        "hubungan": "x1",
         "pertanyaan": "Postingan berupa feed muncul dalam timeline instagram setiap hari ?",
         "radio": 5
     },
@@ -89,6 +91,7 @@
         "id": 11,
         "bagian": 3,
         "hitung": 1,
+        "hubungan": "x1",
         "pertanyaan": "Postingan berupa reels muncul dalam timeline instagram setiap hari ?",
         "radio": 5
     },
@@ -96,6 +99,7 @@
         "id": 12,
         "bagian": 3,
         "hitung": 1,
+        "hubungan": "x1",
         "pertanyaan": "Postingan berupa instastory muncul dalam timeline instagram setiap hari ?",
         "radio": 5
     },
@@ -103,6 +107,7 @@
         "id": 13,
         "bagian": 3,
         "hitung": 1,
+        "hubungan": "x1",
         "pertanyaan": "Saya sering melihat komentar dari admin atas feed yang di posting ?",
         "radio": 5
     },
@@ -111,7 +116,8 @@
             "isi": "Pesan",
             "subjudul": "<div style='text-align: left;'>1. Dari daftar pernyataan yang ada dikelompokan dalam 5 (lima) bagian indikator pengukuran<br>&nbsp;&nbsp;&nbsp;&nbsp;a.) Sangat Setuju              = 5<br>&nbsp;&nbsp;&nbsp;&nbsp;b.) Setuju                           = 4<br>&nbsp;&nbsp;&nbsp;&nbsp;c.) Ragu-Ragu                    = 3<br>&nbsp;&nbsp;&nbsp;&nbsp;d.) Tidak Setuju                 = 2<br>&nbsp;&nbsp;&nbsp;&nbsp;e.) Sangat Tidak Setuju    = 1<br>2. Semakin tinggi skor maka semakin tinggi bobot nilainya<br>3. Pilih satu jawaban yang menurut  Bapak/Ibu/Sdr/i  yang paling sesuai</div>",
             "bagian": 4,
-            "hitung": 2
+            "hitung": 2,
+            "hubungan": "x2"
         }
 
     },
@@ -119,6 +125,7 @@
         "id": 14,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels menggunakan bahasa yang saya pahami ?",
         "radio": 5
     },
@@ -126,6 +133,7 @@
         "id": 15,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed menggunakan bahasa yang saya pahami ?",
         "radio": 5
     },
@@ -133,6 +141,7 @@
         "id": 16,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory menggunakan bahasa yang saya pahami ?",
         "radio": 5
     },
@@ -140,6 +149,7 @@
         "id": 17,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed memiliki pesan yang persuasif/ajakan ?",
         "radio": 5
     },
@@ -147,6 +157,7 @@
         "id": 18,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels memiliki pesan yang persuasif/ajakan ?",
         "radio": 5
     },
@@ -154,6 +165,7 @@
         "id": 19,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory memiliki pesan yang persuasif/ajakan ?",
         "radio": 5
     },
@@ -161,6 +173,7 @@
         "id": 20,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed memiliki pesan yang pendek namun tetap mudah dipahami ?",
         "radio": 5
     },
@@ -168,6 +181,7 @@
         "id": 21,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels memiliki pesan yang pendek namun tetap mudah dipahami ?",
         "radio": 5
     },
@@ -175,6 +189,7 @@
         "id": 22,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory memiliki pesan yang pendek namun tetap mudah dipahami ?",
         "radio": 5
     },
@@ -182,6 +197,7 @@
         "id": 23,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed memiliki pertanyaan kepada followers ?",
         "radio": 5
     },
@@ -189,6 +205,7 @@
         "id": 24,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels memiliki pertanyaan kepada followers ?",
         "radio": 5
     },
@@ -196,6 +213,7 @@
         "id": 25,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory memiliki pertanyaan kepada followers ?",
         "radio": 5
     },
@@ -203,6 +221,7 @@
         "id": 26,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed memiliki gambar dan tulisan caption yang saling berkaitan/sesuai ?",
         "radio": 5
     },
@@ -210,6 +229,7 @@
         "id": 27,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels memiliki gambar dan tulisan caption yang saling berkaitan/sesuai ?",
         "radio": 5
     },
@@ -217,6 +237,7 @@
         "id": 28,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory memiliki gambar dan tulisan caption yang saling berkaitan/sesuai ?",
         "radio": 5
     },
@@ -224,6 +245,7 @@
         "id": 29,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed tidak menggunakan tulisan singkat (contoh : kamu jadi kmu, seperti jadi sprt) ?",
         "radio": 5
     },
@@ -231,6 +253,7 @@
         "id": 30,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels tidak menggunakan tulisan singkat (contoh : kamu jadi kmu, seperti jadi sprt) ?",
         "radio": 5
     },
@@ -238,6 +261,7 @@
         "id": 31,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory tidak menggunakan tulisan singkat (contoh : kamu jadi kmu, seperti jadi sprt) ?",
         "radio": 5
     },
@@ -245,6 +269,7 @@
         "id": 32,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed sangat menarik ?",
         "radio": 5
     },
@@ -252,6 +277,7 @@
         "id": 33,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels sangat menarik ?",
         "radio": 5
     },
@@ -259,6 +285,7 @@
         "id": 34,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory sangat menarik ?",
         "radio": 5
     },
@@ -266,6 +293,7 @@
         "id": 35,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari feed memiliki konsistensi membahas tentang hidroponik ?",
         "radio": 5
     },
@@ -273,6 +301,7 @@
         "id": 36,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari reels memiliki konsistensi membahas tentang hidroponik ?",
         "radio": 5
     },
@@ -280,6 +309,7 @@
         "id": 37,
         "bagian": 4,
         "hitung": 2,
+        "hubungan": "x2",
         "pertanyaan": "Postingan pesan dari instastory memiliki konsistensi membahas tentang hidroponik ?",
         "radio": 5
     },
@@ -288,7 +318,8 @@
             "isi": "Attention (Perhatian)",
             "subjudul": "<div style='text-align: left;'>1. Dari daftar pernyataan yang ada dikelompokan dalam 5 (lima) bagian indikator pengukuran<br>&nbsp;&nbsp;&nbsp;&nbsp;a.) Sangat Setuju              = 5<br>&nbsp;&nbsp;&nbsp;&nbsp;b.) Setuju                           = 4<br>&nbsp;&nbsp;&nbsp;&nbsp;c.) Ragu-Ragu                    = 3<br>&nbsp;&nbsp;&nbsp;&nbsp;d.) Tidak Setuju                 = 2<br>&nbsp;&nbsp;&nbsp;&nbsp;e.) Sangat Tidak Setuju    = 1<br>2. Semakin tinggi skor maka semakin tinggi bobot nilainya<br>3. Pilih satu jawaban yang menurut  Bapak/Ibu/Sdr/i  yang paling sesuai</div>",
             "bagian": 5,
-            "hitung": 3
+            "hitung": 3,
+            "hubungan": "y"
         }
 
     },
@@ -297,35 +328,40 @@
         "bagian": 5,
         "hitung": 3,
         "pertanyaan": "Saya melihat pesan yang disampaikan mudah dipahami sehingga membuat saya memperhatikan apa yang diunggah ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 39,
         "bagian": 5,
         "hitung": 3,
         "pertanyaan": "Tampilan konten visual (foto/video) yang diunggah sangat bagus ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 40,
         "bagian": 5,
         "hitung": 3,
         "pertanyaan": "Saya mengetahui bahwa postingan memberikan penyuluhan hidroponik ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 41,
         "bagian": 5,
         "hitung": 3,
         "pertanyaan": "Saya selalu fokus melihat unggahan postingan jika lewat di beranda instagram ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "judul": {
             "isi": "Interest (Tertarik)",
             "subjudul": "<div style='text-align: left;'>1. Dari daftar pernyataan yang ada dikelompokan dalam 5 (lima) bagian indikator pengukuran<br>&nbsp;&nbsp;&nbsp;&nbsp;a.) Sangat Setuju              = 5<br>&nbsp;&nbsp;&nbsp;&nbsp;b.) Setuju                           = 4<br>&nbsp;&nbsp;&nbsp;&nbsp;c.) Ragu-Ragu                    = 3<br>&nbsp;&nbsp;&nbsp;&nbsp;d.) Tidak Setuju                 = 2<br>&nbsp;&nbsp;&nbsp;&nbsp;e.) Sangat Tidak Setuju    = 1<br>2. Semakin tinggi skor maka semakin tinggi bobot nilainya<br>3. Pilih satu jawaban yang menurut  Bapak/Ibu/Sdr/i  yang paling sesuai</div>",
             "bagian": 6,
-            "hitung": 4
+            "hitung": 4,
+            "hubungan": "y"
         }
 
     },
@@ -334,42 +370,48 @@
         "bagian": 6,
         "hitung": 4,
         "pertanyaan": "Saya tertarik dengan hasil pertanian dari hidroponik yang ditunjukan ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 43,
         "bagian": 6,
         "hitung": 4,
         "pertanyaan": "Saya tertarik melihat dan membaca testimoni yang di unggah ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 44,
         "bagian": 6,
         "hitung": 4,
         "pertanyaan": "Saya menghubungi akun instagram tersebut untuk mencari informasi lebih lanjut mengenai hidroponik diluar dari informasi yang di sampaikan (Contoh : google) ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 45,
         "bagian": 6,
         "hitung": 4,
         "pertanyaan": "Saya percaya dengan manfaat dan kegunaan hidroponik setelah melihat postingan ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 46,
         "bagian": 6,
         "hitung": 4,
         "pertanyaan": "Saya selalu menonton video tutorial dari akun instagram tersebut ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "judul": {
             "isi": "Desire (Keinginan)",
             "subjudul": "<div style='text-align: left;'>1. Dari daftar pernyataan yang ada dikelompokan dalam 5 (lima) bagian indikator pengukuran<br>&nbsp;&nbsp;&nbsp;&nbsp;a.) Sangat Setuju              = 5<br>&nbsp;&nbsp;&nbsp;&nbsp;b.) Setuju                           = 4<br>&nbsp;&nbsp;&nbsp;&nbsp;c.) Ragu-Ragu                    = 3<br>&nbsp;&nbsp;&nbsp;&nbsp;d.) Tidak Setuju                 = 2<br>&nbsp;&nbsp;&nbsp;&nbsp;e.) Sangat Tidak Setuju    = 1<br>2. Semakin tinggi skor maka semakin tinggi bobot nilainya<br>3. Pilih satu jawaban yang menurut  Bapak/Ibu/Sdr/i  yang paling sesuai</div>",
             "bagian": 7,
-            "hitung": 5
+            "hitung": 5,
+            "hubungan": "y"
         }
 
     },
@@ -378,28 +420,32 @@
         "bagian": 7,
         "hitung": 5,
         "pertanyaan": "Saya memiliki keinginan membuat hidroponik dirumah atau sebagai lapangan usaha saya ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 48,
         "bagian": 7,
         "hitung": 5,
         "pertanyaan": "Saya pernah mengikuti pelatihan yang ditawarkan ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "id": 49,
         "bagian": 7,
         "hitung": 5,
         "pertanyaan": "Saya membutuhkan ilmu pengetahuan tentang hidroponik ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "judul": {
             "isi": "Action (Tindakan)",
             "subjudul": "<div style='text-align: left;'>1. Dari daftar pernyataan yang ada dikelompokan dalam 5 (lima) bagian indikator pengukuran<br>&nbsp;&nbsp;&nbsp;&nbsp;a.) Sangat Setuju              = 5<br>&nbsp;&nbsp;&nbsp;&nbsp;b.) Setuju                           = 4<br>&nbsp;&nbsp;&nbsp;&nbsp;c.) Ragu-Ragu                    = 3<br>&nbsp;&nbsp;&nbsp;&nbsp;d.) Tidak Setuju                 = 2<br>&nbsp;&nbsp;&nbsp;&nbsp;e.) Sangat Tidak Setuju    = 1<br>2. Semakin tinggi skor maka semakin tinggi bobot nilainya<br>3. Pilih satu jawaban yang menurut  Bapak/Ibu/Sdr/i  yang paling sesuai</div>",
             "bagian": 8,
-            "hitung": 6
+            "hitung": 6,
+            "hubungan": "y"
         }
 
     },
@@ -408,7 +454,8 @@
         "bagian": 8,
         "hitung": 6,
         "pertanyaan": "Saya mengadopsi hidroponik berkat akun tersebut ?",
-        "radio": 5
+        "radio": 5,
+        "hubungan": "y"
     },
     {
         "judul": {
