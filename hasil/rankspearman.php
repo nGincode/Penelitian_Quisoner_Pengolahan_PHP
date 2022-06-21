@@ -46,7 +46,7 @@ function rank($array, $rank)
     return $nilai;
 }
 
-function arrayjml($pilih)
+function arrayjml($pilih, $datavalid)
 {
 
 
@@ -67,7 +67,7 @@ function arrayjml($pilih)
             if (isset($c['hubungan'])) {
                 if ($c['hubungan'] == 'x1') {
                     foreach ($a['jawaban'] as $d) {
-                        if (isset($d['pertanyaan_' . $c['id']])) {
+                        if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
                             $jumlahx1 += $d['pertanyaan_' . $c['id']];
                         }
                     }
@@ -80,7 +80,7 @@ function arrayjml($pilih)
             if (isset($c['hubungan'])) {
                 if ($c['hubungan'] == 'x2') {
                     foreach ($a['jawaban'] as $d) {
-                        if (isset($d['pertanyaan_' . $c['id']])) {
+                        if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
                             $jumlahx2 += $d['pertanyaan_' . $c['id']];
                         }
                     }
@@ -94,7 +94,7 @@ function arrayjml($pilih)
             if (isset($c['hubungan'])) {
                 if ($c['hubungan'] == 'y') {
                     foreach ($a['jawaban'] as $d) {
-                        if (isset($d['pertanyaan_' . $c['id']])) {
+                        if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
                             $jumlahy += $d['pertanyaan_' . $c['id']];
                         }
                     }
@@ -129,7 +129,12 @@ function arrayjml($pilih)
                 <h2>Uji Rank Spearman</h2><br>
             </center><br>
 
-
+            <center>
+                Pertanyaan Dianalisis: <?php foreach ($datavalid as $datavalidv) {
+                                            echo ' Pertanyaan ' . $datavalidv;
+                                        } ?>
+            </center>
+            <br>
             <div class="row">
 
                 <div class="column" style="width: 100%;">
@@ -168,7 +173,7 @@ function arrayjml($pilih)
                                     if (isset($c['hubungan'])) {
                                         if ($c['hubungan'] == 'x1') {
                                             foreach ($a['jawaban'] as $d) {
-                                                if (isset($d['pertanyaan_' . $c['id']])) {
+                                                if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
                                                     $jumlahx1 += $d['pertanyaan_' . $c['id']];
                                                 }
                                             }
@@ -181,7 +186,7 @@ function arrayjml($pilih)
                                     if (isset($c['hubungan'])) {
                                         if ($c['hubungan'] == 'x2') {
                                             foreach ($a['jawaban'] as $d) {
-                                                if (isset($d['pertanyaan_' . $c['id']])) {
+                                                if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
                                                     $jumlahx2 += $d['pertanyaan_' . $c['id']];
                                                 }
                                             }
@@ -195,7 +200,7 @@ function arrayjml($pilih)
                                     if (isset($c['hubungan'])) {
                                         if ($c['hubungan'] == 'y') {
                                             foreach ($a['jawaban'] as $d) {
-                                                if (isset($d['pertanyaan_' . $c['id']])) {
+                                                if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
                                                     $jumlahy += $d['pertanyaan_' . $c['id']];
                                                 }
                                             }
@@ -212,9 +217,9 @@ function arrayjml($pilih)
                                 <td>
                                     <?= $jumlahy ?>
                                 </td>
-                                <td><?= $rnkx1 = rank(arrayjml('x1'), $jumlahx1)[0]; ?></td>
-                                <td><?= $rnkx2 = rank(arrayjml('x2'), $jumlahx2)[0]; ?></td>
-                                <td><?= $rnky = rank(arrayjml('y'), $jumlahy)[0]; ?></td>
+                                <td><?= $rnkx1 = rank(arrayjml('x1', $datavalid), $jumlahx1)[0]; ?></td>
+                                <td><?= $rnkx2 = rank(arrayjml('x2', $datavalid), $jumlahx2)[0]; ?></td>
+                                <td><?= $rnky = rank(arrayjml('y', $datavalid), $jumlahy)[0]; ?></td>
                                 <td><?= $rnkx1 - $rnky; ?></td>
                                 <td><?= pow($rnkx1 - $rnky, 2); ?></td>
                                 <td><?= $rnkx2 - $rnky; ?></td>

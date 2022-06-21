@@ -71,21 +71,23 @@ $rtbl = json_decode($filertable, TRUE);
                                                             }
                                                         }
                                                     }
-                                                    $x_jwbprt += $jwbprt;
-                                                    $y_scorejwb += $scorejwb;
-                                                    $xy_scorejwb_jwbprt += $scorejwb * $jwbprt;
-                                                    $xpangkat2 += pow($jwbprt, 2);
-                                                    $ypangkat2 += pow($scorejwb, 2);
+                                                    if (isset($jwbprt)) {
+                                                        $x_jwbprt += $jwbprt;
+                                                        $y_scorejwb += $scorejwb;
+                                                        $xy_scorejwb_jwbprt += $scorejwb * $jwbprt;
+                                                        $xpangkat2 += pow($jwbprt, 2);
+                                                        $ypangkat2 += pow($scorejwb, 2);
                                                 ?>
-                                                    <tr>
-                                                        <td><?= $usernm ?></td>
-                                                        <td><?= $jwbprt  ?></td>
-                                                        <td><?= $scorejwb ?></td>
-                                                        <td><?= $scorejwb * $jwbprt  ?></td>
-                                                        <td><?= pow($jwbprt, 2)  ?></td>
-                                                        <td><?= pow($scorejwb, 2)  ?></td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td><?= $usernm ?></td>
+                                                            <td><?= $jwbprt  ?></td>
+                                                            <td><?= $scorejwb ?></td>
+                                                            <td><?= $scorejwb * $jwbprt  ?></td>
+                                                            <td><?= pow($jwbprt, 2)  ?></td>
+                                                            <td><?= pow($scorejwb, 2)  ?></td>
+                                                        </tr>
                                                 <?php
+                                                    }
                                                 } ?>
                                                 <tr>
                                                     <td>Total</td>
@@ -245,6 +247,7 @@ $rtbl = json_decode($filertable, TRUE);
                     <img src="https://4.bp.blogspot.com/-mijVu4YCgjA/WhI7dE9yP4I/AAAAAAAAGVs/t5A5ehi9j5YFA7FMjWvAOWiI1j4i6dm6ACEwYBhgL/s1600/Cronbanch%2BAlpha.png"><br>
                     <b>Pertanyaan yang akan di uji yaitu : </b> <?php
                                                                 $variabelvalid = [];
+                                                                $datavalid = [];
                                                                 foreach ($allujivaliditas as  $allujivaliditasv2) {
                                                                     if ($allujivaliditasv2['ket'] == "VALID") {
 
@@ -278,6 +281,7 @@ $rtbl = json_decode($filertable, TRUE);
                                                                         $variabelvalid[] = $variabelvalid1;
 
                                                                         echo ' Pertanyaan ' . $allujivaliditasv2['pertanyaan'];
+                                                                        $datavalid[] = $allujivaliditasv2['pertanyaan'];
                                                                     }
                                                                 } ?> <br><br>
                     <?php

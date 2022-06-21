@@ -24,7 +24,12 @@ $rtbl = json_decode($filertable, TRUE);
                 <h2>Analisis Efektivitas Metode AIDA</h2><br>
             </center><br>
 
-
+            <center>
+                Pertanyaan Dianalisis: <?php foreach ($datavalid as $datavalidv) {
+                                            echo ' Pertanyaan ' . $datavalidv;
+                                        } ?>
+            </center>
+            <br>
             <div class="row">
 
                 <div class="column" style="width: 100%;">
@@ -50,12 +55,14 @@ $rtbl = json_decode($filertable, TRUE);
                                                 if ($v['bagian'] == $v1['judul']['bagian']) {
                                     ?>
                                                     <tr>
-                                                        <td><?= 'Pertanyaan ' . $v['id'] ?></td>
+                                                        <?php if (in_array($v['id'], $datavalid)) { ?>
+                                                            <td><?= 'Pertanyaan ' . $v['id'] ?></td>
+                                                        <?php } ?>
                                                         <?php
                                                         $totalskor = 0;
                                                         foreach ($isi as $v2) {
                                                             foreach ($v2['jawaban'] as $v3) {
-                                                                if (isset($v3['pertanyaan_' . $v['id']])) {
+                                                                if (isset($v3['pertanyaan_' . $v['id']]) && in_array($v['id'], $datavalid)) {
                                                                     $totalskor += $v3['pertanyaan_' . $v['id']];
                                                                 }
                                                             }
@@ -64,7 +71,9 @@ $rtbl = json_decode($filertable, TRUE);
                                                         $totalpernyataan += 1;
                                                         $jmlskor += $totalskor;
                                                         ?>
-                                                        <td><?= $totalskor ?></td>
+                                                        <?php if ($totalskor) { ?>
+                                                            <td><?= $totalskor ?></td>
+                                                        <?php } ?>
                                                     </tr>
                                     <?php }
                                             }
