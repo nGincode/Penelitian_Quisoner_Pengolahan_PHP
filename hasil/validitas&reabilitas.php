@@ -409,8 +409,8 @@ $rtbl = json_decode($filertable, TRUE);
                             Varian Total = <?= $totalbutirvar ?><br>
                             <br>
                             <b>Maka :</b><br>
-                            ri = (<?= count($sak) ?> / <?= count($sak) - 1 ?>) * (1 - (<?= $butirvar ?> - <?= $totalbutirvar ?>) )<br>
-                            ri = <?= $hasilreabilitas = (count($sak) / count($sak) - 1) * (1 - ($butirvar - $totalbutirvar)); ?><br><br>
+                            ri = (<?= count($sak) ?> / <?= count($sak) - 1 ?>) * (1 - (<?= $butirvar ?> / <?= $totalbutirvar ?>) )<br>
+                            ri = <?= $hasilreabilitas = (count($sak) / count($sak) - 1) * (1 - ($butirvar / $totalbutirvar)); ?><br><br>
                             <b>Penyelesaian :</b><br>
                             <img width="350" src="https://karyaguru.files.wordpress.com/2014/01/tabel-kriteria-reliabilitas.jpg">
                             <br>Maka hasilnya adalah
