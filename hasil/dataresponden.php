@@ -90,9 +90,11 @@ $rtbl = json_decode($filertable, TRUE);
                                             <?php if (isset($c['jawaban'][$d]['bagian'])) { ?>
                                                 <?php if ($bagian[$a]['id'] == $c['jawaban'][$d]['bagian']) { ?>
                                                     <?php if ($d != 3) {
-                                                        $ttlnya = (int)$c['jawaban'][$d]['pertanyaan_' . $d + 1];
-                                                        $total += $ttlnya ?>
-                                                        <td><?= $c['jawaban'][$d]['pertanyaan_' . $d + 1] ?></td>
+                                                        $ddd = $d + 1;
+                                                        $total += (int)$c['jawaban'][$d]['pertanyaan_' . $ddd];
+                                                        // $total += 'pertanyaan_' . $ddd;
+                                                    ?>
+                                                        <td><?= $c['jawaban'][$d]['pertanyaan_' . $ddd] ?></td>
                                                     <?php } ?>
                                                 <?php } ?>
                                             <?php } ?>

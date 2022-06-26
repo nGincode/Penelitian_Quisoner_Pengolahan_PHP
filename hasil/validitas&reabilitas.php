@@ -64,8 +64,8 @@ $rtbl = json_decode($filertable, TRUE);
                                                     $scorejwb = 0;
                                                     foreach ($x['jawaban'] as $no_w => $w) {
                                                         if ($z['judul']['bagian'] == $w['bagian']) {
-                                                            $ttlnyscorejwb += $w['pertanyaan_' . $no_w + 1];
-                                                            $scorejwb = $ttlnyscorejwb + $scorejwb;
+                                                            $no_wwww = $no_w + 1;
+                                                            $scorejwb += $w['pertanyaan_' . $no_wwww];
                                                             if (isset($w['pertanyaan_' . $y['id']])) {
                                                                 $prtnyvalid = $y['id'];
                                                                 $jwbprt = $w['pertanyaan_' . $y['id']];
@@ -244,8 +244,6 @@ $rtbl = json_decode($filertable, TRUE);
                     <b>Rumus Varian:</b> <br>
                     <img src="http://4.bp.blogspot.com/-CkwHXN_gzmc/UqL3cfUxUBI/AAAAAAAAAno/DeEmyDjfCWg/s1600/varians.png" width="300"><br>
                     Maka Rumus Varian yang digunakan adalah yg ke <b>2</b><br><br>
-                    <b>Rumus Cronbanch Alpha : </b><br>
-                    <img src="https://4.bp.blogspot.com/-mijVu4YCgjA/WhI7dE9yP4I/AAAAAAAAGVs/t5A5ehi9j5YFA7FMjWvAOWiI1j4i6dm6ACEwYBhgL/s1600/Cronbanch%2BAlpha.png"><br>
                     <b>Pertanyaan yang akan di uji yaitu : </b> <?php
                                                                 $variabelvalid = [];
                                                                 $datavalid = [];
@@ -407,15 +405,29 @@ $rtbl = json_decode($filertable, TRUE);
                                     ?>
                                     <th style="text-align: right;"><?= round($ttll2 / (count($sak[0]) - 1), 2) ?> </th>
                                 </tr>
+                                <tr>
+                                    <th colspan="<?= count($sak) ?>">∑ Var Butir</th>
+                                    <th style="text-align: right;"><?= $butirvar ?> </th>
+                                    <th style="text-align: right;"></th>
+                                </tr>
                             </table><br>
                             <b>Diketahui :</b><br>
-                            N = <?= count($isi) ?><br>
+                            N = <?= count($sak) ?><br>
                             ∑ Varian Butir = <?= $butirvar ?><br>
-                            Varian Total = <?= $totalbutirvar ?><br>
+                            Total Varian = <?= $totalbutirvar ?><br>
                             <br>
+                            <b>Rumus Cronbanch Alpha : </b><br>
+                            <img src="https://4.bp.blogspot.com/-mijVu4YCgjA/WhI7dE9yP4I/AAAAAAAAGVs/t5A5ehi9j5YFA7FMjWvAOWiI1j4i6dm6ACEwYBhgL/s1600/Cronbanch%2BAlpha.png"><br>
+
                             <b>Maka :</b><br>
                             ri = (<?= count($sak) ?> / <?= count($sak) - 1 ?>) * (1 - (<?= $butirvar ?> / <?= $totalbutirvar ?>) )<br>
-                            ri = <?= $hasilreabilitas = (count($sak) / count($sak) - 1) * (1 - ($butirvar / $totalbutirvar)); ?><br><br>
+                            ri = <?php
+                                    if (count($sak) && (count($sak) - 1)) {
+                                        $jmlsk = (count($sak) / (count($sak) - 1));
+                                        echo $hasilreabilitas = round(abs($jmlsk * (1 - ($butirvar / $totalbutirvar))), 2);
+                                    } else {
+                                        echo  $hasilreabilitas = 0.0;
+                                    } ?><br><br>
                             <b>Penyelesaian :</b><br>
                             <img width="350" src="https://karyaguru.files.wordpress.com/2014/01/tabel-kriteria-reliabilitas.jpg">
                             <br>Maka hasilnya adalah

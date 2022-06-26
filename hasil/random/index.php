@@ -1,7 +1,7 @@
 <?php
 $row = 1;
 $array = [];
-if (($handle = fopen("hidroponikuntuksemua.csv", "r")) !== FALSE) {
+if (($handle = fopen("../../data/file.csv", "r")) !== FALSE) {
     while (($data = fgetcsv($handle, 1000, ",")) !== FALSE) {
         $num = count($data);
         // echo "<p> $num fields in line $row: <br /></p>\n";
@@ -22,6 +22,10 @@ if (($handle = fopen("hidroponikuntuksemua.csv", "r")) !== FALSE) {
 
 $filesoal = file_get_contents("../../json/soal.json");
 $soal = json_decode($filesoal, TRUE);
+
+
+$fileisi = file_get_contents("../../json/isi.json");
+$isi = json_decode($fileisi, TRUE);
 
 
 $jawaban = [];
@@ -267,5 +271,6 @@ foreach ($array as $key => $v) {
         'status' => true
     );
 }
-echo json_encode($jawaban);
-$cek = file_put_contents("../../json/isi.json", json_encode($jawaban));
+// echo json_encode($jawaban);
+// print_r($jawaban);
+$cek = file_put_contents("../../json/isi.json", json_encode($jawaban, JSON_PARTIAL_OUTPUT_ON_ERROR));
