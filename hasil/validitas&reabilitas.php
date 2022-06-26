@@ -64,7 +64,8 @@ $rtbl = json_decode($filertable, TRUE);
                                                     $scorejwb = 0;
                                                     foreach ($x['jawaban'] as $no_w => $w) {
                                                         if ($z['judul']['bagian'] == $w['bagian']) {
-                                                            $scorejwb += $w['pertanyaan_' . $no_w + 1];
+                                                            $ttlnyscorejwb += $w['pertanyaan_' . $no_w + 1];
+                                                            $scorejwb += $ttlnyscorejwb;
                                                             if (isset($w['pertanyaan_' . $y['id']])) {
                                                                 $prtnyvalid = $y['id'];
                                                                 $jwbprt = $w['pertanyaan_' . $y['id']];
