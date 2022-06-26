@@ -72,6 +72,7 @@
 
         /* Create three equal columns that float next to each other */
         .column {
+            display: table;
             float: left;
             width: 31.7%;
             min-width: 400px;
