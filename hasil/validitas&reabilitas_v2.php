@@ -312,9 +312,7 @@ $rtbl = json_decode($filertable, TRUE);
                                         foreach ($variabelvalid as  $allujivaliditasv3) {
                                             $nilai = [];
                                             foreach ($allujivaliditasv3['nilai'] as $nilaiv) {
-                                                //perbagian
-                                                // if ($allujivaliditasv3['bagian'] == $pertnyanjdl[$o]['bagian'] && $allujivaliditasv3['id'] == $pertnyanjdl[$o]['id']) {
-                                                if ($allujivaliditasv3['id'] == $pertnyanjdl[$o]['id']) {
+                                                if ($allujivaliditasv3['bagian'] == $pertnyanjdl[$o]['bagian'] && $allujivaliditasv3['id'] == $pertnyanjdl[$o]['id']) {
                                                     $nilai[] = [
                                                         $allujivaliditasv3['id'] => $nilaiv
                                                     ];

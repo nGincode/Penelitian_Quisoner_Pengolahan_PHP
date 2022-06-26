@@ -302,7 +302,13 @@ a.ssolink {
 }
 
 input[type="radio"] {
-    display: none;
+    /* display: none; */
+    width: 1px;
+    margin-bottom: -40;
+}
+
+input[type="radio"]:focus {
+    outline-color: white;
 }
 
 .ioption-1:checked:checked~.option-1,

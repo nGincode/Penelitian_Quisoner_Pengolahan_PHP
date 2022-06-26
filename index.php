@@ -120,7 +120,7 @@
                                                             <span style="margin-left: 5px;">Setuju</span>
                                                         </label>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="3" class="ioption-3" required checked>
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="3" class="ioption-3" required>
                                                         <label for="option_input_<?= $value['id'] ?>_3" class="option option-3">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Ragu Ragu</span>
@@ -139,7 +139,7 @@
                                                         </label>
                                                     <?php } elseif ($value['radio'] == 2) { ?>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Ya" class="ioption-1" required checked>
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Ya" class="ioption-1" required>
                                                         <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Ya</span>
@@ -152,7 +152,7 @@
                                                         </label>
 
                                                     <?php } elseif ($value['radio'] == 'jk') { ?>
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Pria" class="ioption-1" checked required>
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Pria" class="ioption-1" required>
                                                         <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Pria</span>
@@ -180,7 +180,7 @@
                                                                 10x - 20x</span>
                                                         </label>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="21x - 30x" class="ioption-3" required checked>
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="21x - 30x" class="ioption-3" required>
                                                         <label for="option_input_<?= $value['id'] ?>_3" class="option option-3">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">21x - 30x</span>
@@ -211,7 +211,7 @@
                                                             <span style="margin-left: 5px;">Siang</span>
                                                         </label>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="Sore" class="ioption-3" required checked>
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="Sore" class="ioption-3" required>
                                                         <label for="option_input_<?= $value['id'] ?>_3" class="option option-3">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Sore</span>
@@ -230,7 +230,7 @@
                                                         </label>
                                                     <?php } elseif ($value['radio'] == 'jenis') { ?>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Feed" class="ioption-1" required checked>
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Feed" class="ioption-1" required>
                                                         <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Feed</span>
@@ -242,8 +242,8 @@
                                                             <span style="margin-left: 5px;">Instastory</span>
                                                         </label>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="Reels" class="ioption-2">
-                                                        <label for="option_input_<?= $value['id'] ?>_3" class="option option-2">
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="Reels" class="ioption-3">
+                                                        <label for="option_input_<?= $value['id'] ?>_3" class="option option-3">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Reels</span>
                                                         </label>
