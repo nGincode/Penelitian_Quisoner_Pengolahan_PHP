@@ -16,7 +16,7 @@ $rtbl = json_decode($filertable, TRUE);
 
 
 <div class="formbg-outer">
-    <div class="formbg" style="max-width: 90%;">
+    <div class="formbg">
         <div class="formbg-inner padding-horizontal--48">
             <center>
                 <h2>Uji Validitas & Reabilitas<br>

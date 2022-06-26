@@ -74,6 +74,7 @@
         .column {
             float: left;
             width: 31.7%;
+            min-width: 400px;
             margin: 10px;
         }
 
