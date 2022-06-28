@@ -438,7 +438,7 @@ if (isset($_POST['pertanyaan_1'])) {
             $jawabanfile[] = array('jawaban' => $jawaban, 'status' => true);
         }
     } else {
-        $ceknama == '';
+        $ceknama = '';
         $jawabanfile[] = array('jawaban' => $jawaban, 'status' => true);
     }
 
