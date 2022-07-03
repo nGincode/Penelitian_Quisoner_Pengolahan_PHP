@@ -123,7 +123,8 @@ function arrayjml($pilih, $datavalid)
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="formbg-inner padding-horizontal--48">
+        <div class="judul" onclick="toggle_visibility('rank')">Uji Hubungan</div>
+        <div id="rank" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
 
             <center>
                 <h2>Uji Rank Spearman</h2><br>
@@ -317,7 +318,12 @@ function arrayjml($pilih, $datavalid)
                                             ?>
                 </div>
 
+            </div>
+        </div>
 
+
+        <div class="formbg-inner padding-horizontal--48">
+            <div class="row" style="position: relative; margin-top:-30px;">
                 <div class="column" style="width:100%">
                     <h4>Kesimpulan</h4><br>
                     <table id="customers" style="max-width: 300px;">

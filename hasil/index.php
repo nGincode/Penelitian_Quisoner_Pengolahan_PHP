@@ -99,6 +99,8 @@
             }
         }
     </style>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <script>
         window.onload = function() {
             //hide the preloader
@@ -226,7 +228,32 @@
             background-color: #04AA6D;
             color: white;
         }
+
+        .judul {
+            width: 100%;
+            width: 100%;
+            padding: 20px;
+            font-weight: bolder;
+            border-bottom: solid #00800082;
+            cursor: pointer;
+            transition: 0.5s;
+        }
+
+        .judul:hover {
+            border-radius: 0px 0px 10px 10px;
+            background-color: #04AA6D;
+        }
     </style>
+
+    <script type="text/javascript">
+        function toggle_visibility(id) {
+            var e = document.getElementById(id);
+            if (e.style.display == 'block')
+                e.style.display = 'none';
+            else
+                e.style.display = 'block';
+        }
+    </script>
 </body>
 
 </html>

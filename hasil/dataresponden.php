@@ -16,7 +16,8 @@ $rtbl = json_decode($filertable, TRUE);
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="formbg-inner padding-horizontal--48">
+        <div class="judul" onclick="toggle_visibility('dataresponden')">Data Quisoner</div>
+        <div id="dataresponden" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
             <center>
                 <h2>Data Jawaban Kuisoner</h2>
             </center><br>
@@ -115,10 +116,16 @@ $rtbl = json_decode($filertable, TRUE);
                         </table>
                     </div>
                 <?php } ?>
-                <div style="float: right;">Total Jawaban : <?php echo count($isi) ?></div>
             <?php } else {
                 echo '<h3>Tidak ditemukan</h3>';
             } ?>
+        </div>
+
+        <div class="formbg-inner padding-horizontal--48">
+            <div class="row" style="position: relative; margin-top:-30px;">
+
+                <div style="float: right;font-weight:bolder;">Total Quisoner : <?php echo count($isi) ?></div>
+            </div>
         </div>
     </div>
 </div>

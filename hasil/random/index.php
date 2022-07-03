@@ -152,8 +152,17 @@ foreach ($array as $key => $v) {
                     ];
                 }
             } else if ($value['id'] > 9 && $value['id'] < 51) {
+                if (substr($value['id'], -1) == 1) {
+                    $nmrny = 1;
+                } elseif (substr($value['id'], -1) == 5) {
+                    $nmrny = 5;
+                } elseif (substr($value['id'], -1) == 3) {
+                    $nmrny = 3;
+                } else {
+                    $nmrny = mt_rand(3, 4);
+                }
                 $pertanyaan[] = [
-                    'pertanyaan_' . $value['id'] => $mt_rand5,
+                    'pertanyaan_' . $value['id'] =>  mt_rand(3, 4),
                     'bagian' => $value['bagian']
                 ];
             } else if ($value['id'] == 51) {
@@ -271,6 +280,6 @@ foreach ($array as $key => $v) {
         'status' => true
     );
 }
-// echo json_encode($jawaban);
+echo json_encode($jawaban);
 // print_r($jawaban);
 $cek = file_put_contents("../../json/isi.json", json_encode($jawaban, JSON_PARTIAL_OUTPUT_ON_ERROR));

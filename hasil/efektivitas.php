@@ -18,7 +18,9 @@ $rtbl = json_decode($filertable, TRUE);
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="formbg-inner padding-horizontal--48">
+        <div class="judul" onclick="toggle_visibility('efektif')">Uji Efektivitas</div>
+        <div id="efektif" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
+
 
             <center>
                 <h2>Analisis Efektivitas Metode AIDA</h2><br>
@@ -174,7 +176,12 @@ $rtbl = json_decode($filertable, TRUE);
                 </div>
 
 
-                <div class="column" style="width:100%">
+            </div>
+        </div>
+
+        <div class="formbg-inner padding-horizontal--48">
+            <div class="row" style="position: relative; margin-top:-30px;">
+                <div class="column" style="display: block;" style="width:100%">
                     <h4>Kesimpulan</h4><br>
                     <table id="customers" style="max-width: 300px;">
                         <tr>

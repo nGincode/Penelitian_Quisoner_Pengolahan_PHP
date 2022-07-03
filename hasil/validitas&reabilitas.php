@@ -17,7 +17,8 @@ $rtbl = json_decode($filertable, TRUE);
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="formbg-inner padding-horizontal--48">
+        <div class="judul" onclick="toggle_visibility('Validitas')">Uji Validitas & Reabilitas</div>
+        <div id="Validitas" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
             <center>
                 <h2>Uji Validitas & Reabilitas<br>
                     Nilai Taraf Nyata 5%</h2><br>
@@ -211,28 +212,6 @@ $rtbl = json_decode($filertable, TRUE);
                     }
                     ?>
 
-
-                    <div class="column" style="width:100%">
-                        <h4>Kesimpulan</h4><br>
-                        <table id="customers" style="max-width: 300px;">
-                            <tr>
-                                <th style="text-align: center;">Pertanyaan</th>
-                                <th style="text-align: center;">Status</th>
-                            </tr>
-                            <?php foreach ($allujivaliditas as  $allujivaliditasv) {
-                                if (isset($allujivaliditasv['pertanyaan'])) { ?>
-                                    <tr>
-                                        <td><b><?= $allujivaliditasv['pertanyaan']  ?></b></td>
-                                        <td><?php if ($allujivaliditasv['ket'] == 'VALID') {
-                                                echo '<b style="color:green">VALID</b>';
-                                            } else {
-                                                echo '<b style="color:red">Tidak VALID</b>';
-                                            }  ?></td>
-                                    </tr>
-                            <?php }
-                            } ?>
-                        </table>
-                    </div>
                 <?php  } else {
                     echo '<h3>Responden Terlalu Sedikit</h3>';
                 }  ?>
@@ -254,6 +233,7 @@ $rtbl = json_decode($filertable, TRUE);
                                                                             if (isset($rels['id'])) {
                                                                                 if ($rels['id'] == $allujivaliditasv2['pertanyaan']) {
                                                                                     $variabelvalid1['bagian'] = $rels['bagian'];
+                                                                                    $variabelvalid1['hubungan'] = $rels['hubungan'];
                                                                                 }
                                                                             }
                                                                         }
@@ -290,18 +270,22 @@ $rtbl = json_decode($filertable, TRUE);
                     }
 
                     $kesimpulanreabilitas = [];
-                    foreach (array_unique($jmlulangrel) as $relulang) {
+                    // foreach (array_unique($jmlulangrel) as $relulang) {
+
+                    $variabelnya = ['x1', 'x2', 'y'];
+                    foreach ($variabelnya as $variabelnyav) {
 
                         $pertnyanjdl = [];
 
                         foreach ($variabelvalid as  $allujivaliditasv2) {
-                            if ($relulang == $allujivaliditasv2['bagian']) {
-                                $pertnyanjdl[] = ['nama' => $allujivaliditasv2['bagian_nama'], 'bagian' => $allujivaliditasv2['bagian'], 'id' => $allujivaliditasv2['id']];
+                            if ($variabelnyav == $allujivaliditasv2['hubungan']) {
+                                $pertnyanjdl[] = ['hubungan' => $allujivaliditasv2['hubungan'], 'nama' => $allujivaliditasv2['bagian_nama'], 'bagian' => $allujivaliditasv2['bagian'], 'id' => $allujivaliditasv2['id']];
                             }
                         }
+
                     ?>
                         <div class="column">
-                            <b>Pertanyaan <?= $pertnyanjdl[0]['nama'] ?></b>
+                            <b>Pertanyaan <?= strtoupper($variabelnyav) ?></b>
                             <table id="customers">
                                 <tr>
                                     <th style="text-align: center;">NO</th>
@@ -453,43 +437,78 @@ $rtbl = json_decode($filertable, TRUE);
                         </div>
                     <?php
                         $kesimpulanreabilitas[] = array(
-                            'no' => $relulang,
+                            'no' => $variabelnyav,
                             'ket' => $ketreabilitas
                         );
                     } ?>
                 </div>
 
 
+
+
+            </div>
+
+        </div>
+
+
+        <div class="formbg-inner padding-horizontal--48">
+            <div class="row" style="position: relative; margin-top:-30px;">
+
+
+
                 <div class="column" style="width:100%">
-                    <h4>Kesimpulan</h4><br>
+                    <h4>Kesimpulan Validitas</h4><br>
+                    <table id="customers" style="max-width: 300px;">
+                        <tr>
+                            <th style="text-align: center;">Pertanyaan</th>
+                            <th style="text-align: center;">Status</th>
+                        </tr>
+                        <?php
+                        $jmldatavalid = 0;
+                        $jmldatatdkvalid = 0;
+                        foreach ($allujivaliditas as  $allujivaliditasv) {
+                            if (isset($allujivaliditasv['pertanyaan'])) { ?>
+                                <tr>
+                                    <td><b><?= $allujivaliditasv['pertanyaan']  ?></b></td>
+                                    <td><?php if ($allujivaliditasv['ket'] == 'VALID') {
+                                            echo '<b style="color:green">VALID</b>';
+
+                                            $jmldatavalid++;
+                                        } else {
+                                            echo '<b style="color:red">Tidak VALID</b>';
+                                            $jmldatatdkvalid++;
+                                        }  ?></td>
+                                </tr>
+                        <?php }
+                        } ?>
+                    </table>
+                    <p>Jumlah Data Valid : <?= $jmldatavalid ?></p>
+                    <p>Jumlah Data Tidak Valid : <?= $jmldatatdkvalid ?></p>
+                </div>
+
+                <div class="column" style="width:100%">
+                    <h4>Kesimpulan Reabilitas</h4><br>
                     <table id="customers" style="max-width: 300px;">
                         <tr>
                             <th style="text-align: center;">Variabel</th>
                             <th style="text-align: center;">Status</th>
                         </tr>
                         <?php
+
                         foreach ($kesimpulanreabilitas as  $kesimpulanreabilitasv) {
 
 
-                            foreach ($soal as $cekinsoal) {
-                                if (isset($cekinsoal['judul']['bagian'])) {
-                                    if ($kesimpulanreabilitasv['no'] == $cekinsoal['judul']['bagian']) {
 
                         ?>
-                                        <tr>
-                                            <td><b><?= $cekinsoal['judul']['isi']  ?></b></td>
-                                            <td><?= $kesimpulanreabilitasv['ket']  ?></td>
-                                        </tr>
-                        <?php     }
-                                }
-                            }
+                            <tr>
+                                <td><b><?= $kesimpulanreabilitasv['no']  ?></b></td>
+                                <td><?= $kesimpulanreabilitasv['ket']  ?></td>
+                            </tr>
+                        <?php
                         } ?>
                     </table>
                 </div>
-
-
             </div>
-
         </div>
     </div>
 </div>
