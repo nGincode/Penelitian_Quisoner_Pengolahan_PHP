@@ -22,7 +22,7 @@ $rtbl = json_decode($filertable, TRUE);
             <div style="float: right;" id="Validitashide">Hide</div>
 
         </div>
-        <div id="Validitas" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
+        <div id="Validitas" style="display: none ;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
             <center>
                 <h2>Uji Validitas & Reabilitas<br>
                     Nilai Taraf Nyata 5%</h2><br>
@@ -230,41 +230,43 @@ $rtbl = json_decode($filertable, TRUE);
                     <b>Pertanyaan yang akan di uji yaitu : </b> <?php
                                                                 $variabelvalid = [];
                                                                 $datavalid = [];
-                                                                foreach ($allujivaliditas as  $allujivaliditasv2) {
-                                                                    if ($allujivaliditasv2['ket'] == "VALID") {
+                                                                if (isset($allujivaliditas)) {
+                                                                    foreach ($allujivaliditas as  $allujivaliditasv2) {
+                                                                        if ($allujivaliditasv2['ket'] == "VALID") {
 
-                                                                        foreach ($soal as $rels) {
-                                                                            if (isset($rels['id'])) {
-                                                                                if ($rels['id'] == $allujivaliditasv2['pertanyaan']) {
-                                                                                    $variabelvalid1['bagian'] = $rels['bagian'];
-                                                                                    $variabelvalid1['hubungan'] = $rels['hubungan'];
-                                                                                }
-                                                                            }
-                                                                        }
-                                                                        $variabelvalid1['id'] = $allujivaliditasv2['pertanyaan'];
-                                                                        foreach ($soal as $rels) {
-                                                                            if (isset($variabelvalid1['bagian'])) {
-                                                                                if (isset($rels['judul']['isi'])) {
-                                                                                    if ($rels['judul']['bagian'] == $variabelvalid1['bagian']) {
-                                                                                        $variabelvalid1['bagian_nama'] = $rels['judul']['isi'];
+                                                                            foreach ($soal as $rels) {
+                                                                                if (isset($rels['id'])) {
+                                                                                    if ($rels['id'] == $allujivaliditasv2['pertanyaan']) {
+                                                                                        $variabelvalid1['bagian'] = $rels['bagian'];
+                                                                                        $variabelvalid1['hubungan'] = $rels['hubungan'];
                                                                                     }
                                                                                 }
                                                                             }
-                                                                        }
-                                                                        $variabelvalid2 = [];
-                                                                        foreach ($isi as $relisi) {
-                                                                            foreach ($relisi['jawaban'] as $relisj) {
-                                                                                if (isset($relisj['pertanyaan_' . $allujivaliditasv2['pertanyaan']])) {
-                                                                                    $variabelvalid2[] = $relisj['pertanyaan_' . $allujivaliditasv2['pertanyaan']];
+                                                                            $variabelvalid1['id'] = $allujivaliditasv2['pertanyaan'];
+                                                                            foreach ($soal as $rels) {
+                                                                                if (isset($variabelvalid1['bagian'])) {
+                                                                                    if (isset($rels['judul']['isi'])) {
+                                                                                        if ($rels['judul']['bagian'] == $variabelvalid1['bagian']) {
+                                                                                            $variabelvalid1['bagian_nama'] = $rels['judul']['isi'];
+                                                                                        }
+                                                                                    }
                                                                                 }
                                                                             }
+                                                                            $variabelvalid2 = [];
+                                                                            foreach ($isi as $relisi) {
+                                                                                foreach ($relisi['jawaban'] as $relisj) {
+                                                                                    if (isset($relisj['pertanyaan_' . $allujivaliditasv2['pertanyaan']])) {
+                                                                                        $variabelvalid2[] = $relisj['pertanyaan_' . $allujivaliditasv2['pertanyaan']];
+                                                                                    }
+                                                                                }
+                                                                            }
+                                                                            $variabelvalid1['nilai'] = $variabelvalid2;
+
+                                                                            $variabelvalid[] = $variabelvalid1;
+
+                                                                            echo ' Pertanyaan ' . $allujivaliditasv2['pertanyaan'];
+                                                                            $datavalid[] = $allujivaliditasv2['pertanyaan'];
                                                                         }
-                                                                        $variabelvalid1['nilai'] = $variabelvalid2;
-
-                                                                        $variabelvalid[] = $variabelvalid1;
-
-                                                                        echo ' Pertanyaan ' . $allujivaliditasv2['pertanyaan'];
-                                                                        $datavalid[] = $allujivaliditasv2['pertanyaan'];
                                                                     }
                                                                 } ?> <br><br>
                     <?php
@@ -385,15 +387,29 @@ $rtbl = json_decode($filertable, TRUE);
                                     foreach ($butirtotalres as $butirtotalresvrr) {
                                         $ttlbutirtotalresvrr += $butirtotalresvrr;
                                     }
-                                    $ratares2 = $ttlbutirtotalresvrr / count($sak[0]);
+                                    if ($ttlbutirtotalresvrr) {
+                                        $ratares2 = $ttlbutirtotalresvrr / count($sak[0]);
+                                    } else {
+                                        $ratares2 = 0;
+                                    }
 
                                     $ttll2 = 0;
                                     foreach ($butirtotalres as  $butirtotalresv) {
                                         $ttll2 += pow($butirtotalresv - $ratares2, 2);
                                     }
-                                    $totalbutirvar += round($ttll2 / (count($sak[0]) - 1), 2);
+
+                                    if ($ttll2) {
+                                        $totalbutirvar += round($ttll2 / (count($sak[0]) - 1), 2);
+                                    } else {
+                                        $totalbutirvar += 0;
+                                    }
                                     ?>
-                                    <th style="text-align: right;"><?= round($ttll2 / (count($sak[0]) - 1), 2) ?> </th>
+                                    <th style="text-align: right;"><?php
+                                                                    if ($ttll2) {
+                                                                        echo round($ttll2 / (count($sak[0]) - 1), 2);
+                                                                    } else {
+                                                                        echo 0;
+                                                                    } ?> </th>
                                 </tr>
                                 <tr>
                                     <th colspan="<?= count($sak) ?>">∑ Var Butir</th>
@@ -470,20 +486,23 @@ $rtbl = json_decode($filertable, TRUE);
                         <?php
                         $jmldatavalid = 0;
                         $jmldatatdkvalid = 0;
-                        foreach ($allujivaliditas as  $allujivaliditasv) {
-                            if (isset($allujivaliditasv['pertanyaan'])) { ?>
-                                <tr>
-                                    <td><b><?= $allujivaliditasv['pertanyaan']  ?></b></td>
-                                    <td><?php if ($allujivaliditasv['ket'] == 'VALID') {
-                                            echo '<b style="color:green">VALID</b>';
 
-                                            $jmldatavalid++;
-                                        } else {
-                                            echo '<b style="color:red">Tidak VALID</b>';
-                                            $jmldatatdkvalid++;
-                                        }  ?></td>
-                                </tr>
+                        if (isset($allujivaliditas)) {
+                            foreach ($allujivaliditas as  $allujivaliditasv) {
+                                if (isset($allujivaliditasv['pertanyaan'])) { ?>
+                                    <tr>
+                                        <td><b><?= $allujivaliditasv['pertanyaan']  ?></b></td>
+                                        <td><?php if ($allujivaliditasv['ket'] == 'VALID') {
+                                                echo '<b style="color:green">VALID</b>';
+
+                                                $jmldatavalid++;
+                                            } else {
+                                                echo '<b style="color:red">Tidak VALID</b>';
+                                                $jmldatatdkvalid++;
+                                            }  ?></td>
+                                    </tr>
                         <?php }
+                            }
                         } ?>
                     </table>
                     <p>Jumlah Data Valid : <?= $jmldatavalid ?></p>

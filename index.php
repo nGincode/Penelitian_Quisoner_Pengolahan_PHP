@@ -82,7 +82,7 @@
 
 
                                 <?php
-                                $filesoal = file_get_contents("json/soal.json");
+                                $filesoal = file_get_contents("data/json/soal.json");
                                 $soal = json_decode($filesoal, TRUE);
 
                                 foreach ($soal as $key => $value) {

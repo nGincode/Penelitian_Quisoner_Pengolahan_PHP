@@ -20,11 +20,11 @@ if (($handle = fopen("../../data/file.csv", "r")) !== FALSE) {
 }
 
 
-$filesoal = file_get_contents("../../json/soal.json");
+$filesoal = file_get_contents("../../data/json/soal.json");
 $soal = json_decode($filesoal, TRUE);
 
 
-$fileisi = file_get_contents("../../json/isi.json");
+$fileisi = file_get_contents("../../data/json/isi.json");
 $isi = json_decode($fileisi, TRUE);
 
 
@@ -282,4 +282,4 @@ foreach ($array as $key => $v) {
 }
 echo json_encode($jawaban);
 // print_r($jawaban);
-$cek = file_put_contents("../../json/isi.json", json_encode($jawaban, JSON_PARTIAL_OUTPUT_ON_ERROR));
+$cek = file_put_contents("../../data/json/isi.json", json_encode($jawaban, JSON_PARTIAL_OUTPUT_ON_ERROR));
