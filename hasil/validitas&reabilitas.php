@@ -17,7 +17,11 @@ $rtbl = json_decode($filertable, TRUE);
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="judul" onclick="toggle_visibility('Validitas')">Uji Validitas & Reabilitas</div>
+        <div class="judul" onclick="toggle_visibility('Validitas')">Uji Validitas & Reabilitas
+
+            <div style="float: right;" id="Validitashide">Hide</div>
+
+        </div>
         <div id="Validitas" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
             <center>
                 <h2>Uji Validitas & Reabilitas<br>

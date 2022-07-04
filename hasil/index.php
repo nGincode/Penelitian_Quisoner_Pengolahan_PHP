@@ -248,10 +248,13 @@
     <script type="text/javascript">
         function toggle_visibility(id) {
             var e = document.getElementById(id);
-            if (e.style.display == 'block')
+            if (e.style.display == 'block') {
                 e.style.display = 'none';
-            else
+                document.getElementById(id + 'hide').innerHTML = 'Hide';
+            } else {
                 e.style.display = 'block';
+                document.getElementById(id + 'hide').innerHTML = 'Show';
+            }
         }
     </script>
 </body>

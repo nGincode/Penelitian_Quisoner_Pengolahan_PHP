@@ -16,7 +16,9 @@ $rtbl = json_decode($filertable, TRUE);
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="judul" onclick="toggle_visibility('dataresponden')">Data Quisoner</div>
+        <div class="judul" onclick="toggle_visibility('dataresponden')">Data Quisoner
+            <div style="float: right;" id="datarespondenhide">Hide</div>
+        </div>
         <div id="dataresponden" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
             <center>
                 <h2>Data Jawaban Kuisoner</h2>
@@ -24,6 +26,7 @@ $rtbl = json_decode($filertable, TRUE);
 
             <?php
 
+            $hasiljawaban = [];
 
             $jmlpertanyaan = 1;
             $bagian = [];
@@ -40,7 +43,11 @@ $rtbl = json_decode($filertable, TRUE);
                 }
             }
 
-
+            $x11 = 0;
+            $x12 = 0;
+            $x13 = 0;
+            $x14 = 0;
+            $x15 = 0;
             if ($isi) {
                 $bagian1 = 1;
                 for ($a = 0; $a < count($bagian); $a++) {

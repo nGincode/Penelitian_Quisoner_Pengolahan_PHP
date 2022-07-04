@@ -123,7 +123,11 @@ function arrayjml($pilih, $datavalid)
 
 <div class="formbg-outer">
     <div class="formbg">
-        <div class="judul" onclick="toggle_visibility('rank')">Uji Hubungan</div>
+        <div class="judul" onclick="toggle_visibility('rank')">Uji Hubungan
+
+            <div style="float: right;" id="rankhide">Hide</div>
+
+        </div>
         <div id="rank" style="display: none;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
 
             <center>
