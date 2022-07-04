@@ -418,7 +418,7 @@ if (isset($_POST['pertanyaan_1'])) {
     }
 
     $jawabanfile = [];
-    $fileisi = file_get_contents("json/isi.json");
+    $fileisi = file_get_contents("data/json/isi.json");
     $isi = json_decode($fileisi, TRUE);
     if ($isi) {
         $ceknama = '';
