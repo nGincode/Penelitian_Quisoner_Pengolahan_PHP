@@ -446,7 +446,7 @@ if (isset($_POST['pertanyaan_1'])) {
 
     if ($ceknama == '') {
         $jsonjawaban = json_encode($jawabanfile);
-        $cek = file_put_contents("json/isi.json", $jsonjawaban);
+        $cek = file_put_contents("data/json/isi.json", $jsonjawaban);
         if ($cek) {
             echo "<script>Swal.fire({
             position: 'top-end',
