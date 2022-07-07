@@ -305,6 +305,7 @@ input[type="radio"] {
     /* display: none; */
     width: 1px;
     margin-bottom: -40;
+    min-height: 35px;
 }
 
 input[type="radio"]:focus {
