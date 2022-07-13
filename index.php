@@ -256,7 +256,7 @@
                                                         </label>
                                                     <?php } elseif ($value['radio'] == 'tau') { ?>
 
-                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Media Sosial" class="ioption-1">
+                                                        <input type="radio" required id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Media Sosial" class="ioption-1">
                                                         <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Media Sosial</span>

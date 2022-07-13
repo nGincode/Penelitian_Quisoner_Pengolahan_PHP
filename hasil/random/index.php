@@ -34,6 +34,7 @@ foreach ($array as $key => $v) {
     foreach ($soal as $key1 => $value) {
         if (isset($value['id'])) {
             $mt_rand5 = mt_rand(1, 5);
+            $mt_rand4 = mt_rand(1, 4);
             $mt_rand3 = mt_rand(1, 2);
             $mt_rand2 = mt_rand(1, 2);
             if ($value['id'] == 1 or $value['id'] == 2) {
@@ -42,29 +43,14 @@ foreach ($array as $key => $v) {
                     'bagian' => $value['bagian']
                 ];
             } else if ($value['id'] == 3) {
-                if ($mt_rand5 == 1) {
-                    $pertanyaan[] = [
-                        'pertanyaan_' . $value['id'] => 'Youtube',
-                        'bagian' => $value['bagian']
-                    ];
-                } elseif ($mt_rand5 == 2) {
-                    $pertanyaan[] = [
-                        'pertanyaan_' . $value['id'] => 'Iklan',
-                        'bagian' => $value['bagian']
-                    ];
-                } elseif ($mt_rand5 == 3) {
-                    $pertanyaan[] = [
-                        'pertanyaan_' . $value['id'] => 'Facebook',
-                        'bagian' => $value['bagian']
-                    ];
-                } elseif ($mt_rand5 == 4) {
+                if ($mt_rand2 == 1) {
                     $pertanyaan[] = [
                         'pertanyaan_' . $value['id'] => 'Orang Lain',
                         'bagian' => $value['bagian']
                     ];
-                } elseif ($mt_rand5 == 5) {
+                } elseif ($mt_rand5 == 2) {
                     $pertanyaan[] = [
-                        'pertanyaan_' . $value['id'] => 'Instagram',
+                        'pertanyaan_' . $value['id'] => 'Media Sosial',
                         'bagian' => $value['bagian']
                     ];
                 }
@@ -125,29 +111,24 @@ foreach ($array as $key => $v) {
                     ];
                 }
             } else if ($value['id'] == 9) {
-                if ($mt_rand5 == 1) {
+                if ($mt_rand4 == 1) {
                     $pertanyaan[] = [
                         'pertanyaan_' . $value['id'] => 'Sumatera',
                         'bagian' => $value['bagian']
                     ];
-                } elseif ($mt_rand5 == 2) {
+                } elseif ($mt_rand4 == 2) {
                     $pertanyaan[] = [
                         'pertanyaan_' . $value['id'] => 'Kalimantan',
                         'bagian' => $value['bagian']
                     ];
-                } elseif ($mt_rand5 == 3) {
+                } elseif ($mt_rand4 == 3) {
                     $pertanyaan[] = [
                         'pertanyaan_' . $value['id'] => 'Jawa',
                         'bagian' => $value['bagian']
                     ];
-                } elseif ($mt_rand5 == 4) {
+                } elseif ($mt_rand4 == 4) {
                     $pertanyaan[] = [
                         'pertanyaan_' . $value['id'] => 'Sulawesi',
-                        'bagian' => $value['bagian']
-                    ];
-                } elseif ($mt_rand5 == 5) {
-                    $pertanyaan[] = [
-                        'pertanyaan_' . $value['id'] => 'Papua',
                         'bagian' => $value['bagian']
                     ];
                 }
