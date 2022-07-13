@@ -22,7 +22,7 @@
         "id": 3,
         "bagian": 1,
         "pertanyaan": "Dari mana anda mengetahui akun instagram @hidroponikuntuksemua ?",
-        "text": true
+        "radio": "tau"
     },
     {
         "judul": {
@@ -61,13 +61,13 @@
         "id": 8,
         "bagian": 2,
         "pertanyaan": "Pekerjaan",
-        "text": true
+        "radio": "pekerjaan"
     },
     {
         "id": 9,
         "bagian": 2,
-        "pertanyaan": "Alamat",
-        "text": true
+        "pertanyaan": "Daerah Tinggal",
+        "radio": "daerah"
     },
     {
         "judul": {
@@ -488,18 +488,6 @@
         "bagian": 9,
         "pertanyaan": "Apakah akun tesebut telah memanfaatkan fitur instagram dengan baik untuk melakukan penyuluhan mengenai hidroponik ?",
         "radio": 2
-    },
-    {
-        "id": 55,
-        "bagian": 9,
-        "pertanyaan": "Alasan anda dari jawaban diatas ?",
-        "text": true
-    },
-    {
-        "id": 56,
-        "bagian": 9,
-        "pertanyaan": "Kritik & saran untuk cara penyuluhan hidroponik yang telah di lakukan oleh akun tersebut ?",
-        "text": true
     }
 
 ]
