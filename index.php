@@ -254,6 +254,76 @@
                                                             <div class="dot"></div>
                                                             <span style="margin-left: 5px;">Reels</span>
                                                         </label>
+                                                    <?php } elseif ($value['radio'] == 'tau') { ?>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Media Sosial" class="ioption-1">
+                                                        <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Media Sosial</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_2" name="pertanyaan_<?= $value['id'] ?>" value="Orang Lain" class="ioption-2">
+                                                        <label for="option_input_<?= $value['id'] ?>_2" class="option option-2">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Orang Lain</span>
+                                                        </label>
+                                                    <?php } elseif ($value['radio'] == 'pekerjaan') { ?>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Pegawai Negeri" class="ioption-1" required>
+                                                        <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Pegawai Negeri</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_2" name="pertanyaan_<?= $value['id'] ?>" value="Pegawai Swasta" class="ioption-2">
+                                                        <label for="option_input_<?= $value['id'] ?>_2" class="option option-2">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Pegawai Swasta</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="Pengusaha" class="ioption-3">
+                                                        <label for="option_input_<?= $value['id'] ?>_3" class="option option-3">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Pengusaha</span>
+                                                        </label>
+
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_4" name="pertanyaan_<?= $value['id'] ?>" value="Belum Bekerja" class="ioption-4">
+                                                        <label for="option_input_<?= $value['id'] ?>_4" class="option option-4">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Belum Bekerja</span>
+                                                        </label>
+                                                    <?php } elseif ($value['radio'] == 'daerah') { ?>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_1" name="pertanyaan_<?= $value['id'] ?>" value="Sumatera" class="ioption-1">
+                                                        <label for="option_input_<?= $value['id'] ?>_1" class="option option-1">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Sumatera</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_2" name="pertanyaan_<?= $value['id'] ?>" value="Jawa" class="ioption-2">
+                                                        <label for="option_input_<?= $value['id'] ?>_2" class="option option-2">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Jawa</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_3" name="pertanyaan_<?= $value['id'] ?>" value="Kalimantan" class="ioption-3" required>
+                                                        <label for="option_input_<?= $value['id'] ?>_3" class="option option-3">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Kalimantan</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_4" name="pertanyaan_<?= $value['id'] ?>" value="Sulawesi" class="ioption-4">
+                                                        <label for="option_input_<?= $value['id'] ?>_4" class="option option-4">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Sulawesi</span>
+                                                        </label>
+
+                                                        <input type="radio" id="option_input_<?= $value['id'] ?>_5" name="pertanyaan_<?= $value['id'] ?>" value="Papua" class="ioption-5">
+                                                        <label for="option_input_<?= $value['id'] ?>_5" class="option option-5">
+                                                            <div class="dot"></div>
+                                                            <span style="margin-left: 5px;">Papua</span>
+                                                        </label>
                                                     <?php } ?>
                                                 </div>
                                             </div>
