@@ -15,20 +15,108 @@ $rtbl = json_decode($filertable, TRUE);
 
 
 //rank
-function rank_avg($value, $array, $order = 0)
+
+function rank($array, $rank)
 {
-    // sort  
-    if ($order) sort($array);
-    else rsort($array);
-    // add item for counting from 1 but 0
-    array_unshift($array, $value + 1);
-    // select all indexes vith the value
-    $keys = array_keys($array, $value);
-    if (count($keys) == 0) return NULL;
-    // calculate the rank
-    return array_sum($keys) / count($keys);
+
+    $i = 1;
+    $data = [];
+    foreach ($array as $key => $values) {
+        $max = max($array);
+        $data[] = array(
+            'rank' => $i,
+            'no' => $max
+        );
+        $keys = array_search($max, $array);
+        unset($array[$keys]);
+        if (sizeof($array) > 0) {
+            if (!in_array($max, $array)) {
+                $i++;
+            }
+        }
+    }
+
+    $hasil = [];
+    foreach ($data as $value) {
+        if ($value['no'] == $rank) {
+            $hasil[] = $value['rank'];
+        }
+    }
+    $nilai = array_unique($hasil);
+    return $nilai;
 }
 
+function arrayjml($pilih, $datavalid)
+{
+
+
+    $filesoal = file_get_contents("../data/json/soal.json");
+    $soal = json_decode($filesoal, TRUE);
+
+
+    $fileisi = file_get_contents("../data/json/isi.json");
+    $isi = json_decode($fileisi, TRUE);
+
+    $jmlx1 = [];
+    $jmlx2 = [];
+    $jmly = [];
+    foreach ($isi as $noa => $a) {
+
+        $jumlahx1 = 0;
+        foreach ($soal as $c) {
+            if (isset($c['hubungan'])) {
+                if ($c['hubungan'] == 'x1') {
+                    foreach ($a['jawaban'] as $d) {
+                        if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
+                            $jumlahx1 += $d['pertanyaan_' . $c['id']];
+                        }
+                    }
+                }
+            }
+        }
+
+        $jumlahx2 = 0;
+        foreach ($soal as $c) {
+            if (isset($c['hubungan'])) {
+                if ($c['hubungan'] == 'x2') {
+                    foreach ($a['jawaban'] as $d) {
+                        if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
+                            $jumlahx2 += $d['pertanyaan_' . $c['id']];
+                        }
+                    }
+                }
+            }
+        }
+
+
+        $jumlahy = 0;
+        foreach ($soal as $c) {
+            if (isset($c['hubungan'])) {
+                if ($c['hubungan'] == 'y') {
+                    foreach ($a['jawaban'] as $d) {
+                        if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
+                            $jumlahy += $d['pertanyaan_' . $c['id']];
+                        }
+                    }
+                }
+            }
+        }
+
+
+        $jmlx1[] = $jumlahx1;
+        $jmlx2[] = $jumlahx2;
+        $jmly[] = $jumlahy;
+    }
+
+
+    if ($pilih == 'x1') {
+        return $jmlx1;
+    } elseif ($pilih == 'x2') {
+        return $jmlx2;
+    } elseif ($pilih == 'y') {
+        return $jmly;
+    }
+}
 ?>
 
 
@@ -55,7 +143,7 @@ function rank_avg($value, $array, $order = 0)
             <div class="row">
 
                 <div class="column" style="width: 100%;">
-                    <table id="customers" border="1px">
+                    <table id="customers">
                         <tr>
                             <th style="text-align: center;">Username</th>
                             <th style="text-align: center;">X1</th>
@@ -73,59 +161,7 @@ function rank_avg($value, $array, $order = 0)
                         $d1 = 0;
                         $d2 = 0;
                         $kesmpulan = [];
-
-                        $array_x1 = [];
-                        $array_x2 = [];
-                        $array_y = [];
-                        foreach ($isi as $noa => $a) {
-                            $jumlahx1 = 0;
-                            foreach ($soal as $c) {
-                                if (isset($c['hubungan'])) {
-                                    if ($c['hubungan'] == 'x1') {
-                                        foreach ($a['jawaban'] as $d) {
-                                            if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
-                                                $jumlahx1 += $d['pertanyaan_' . $c['id']];
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            $array_x1[] = $jumlahx1;
-
-
-                            $jumlahx2 = 0;
-                            foreach ($soal as $c) {
-                                if (isset($c['hubungan'])) {
-                                    if ($c['hubungan'] == 'x2') {
-                                        foreach ($a['jawaban'] as $d) {
-                                            if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
-                                                $jumlahx2 += $d['pertanyaan_' . $c['id']];
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            $array_x2[] = $jumlahx2;
-
-
-                            $jumlahy = 0;
-                            foreach ($soal as $c) {
-                                if (isset($c['hubungan'])) {
-                                    if ($c['hubungan'] == 'y') {
-                                        foreach ($a['jawaban'] as $d) {
-                                            if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
-                                                $jumlahy += $d['pertanyaan_' . $c['id']];
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                            $array_y[] = $jumlahy;
-                        } ?>
-
-                        <?php
-                        foreach ($isi as $noaa => $a) {
-                        ?>
+                        foreach ($isi as $noa => $a) { ?>
                             <tr>
                                 <?php
 
@@ -134,41 +170,78 @@ function rank_avg($value, $array, $order = 0)
                                         <td><?= $b['pertanyaan_4'] ?></td>
                                 <?php }
                                 } ?>
+
+
                                 <?php
+                                $jumlahx1 = 0;
+                                foreach ($soal as $c) {
+                                    if (isset($c['hubungan'])) {
+                                        if ($c['hubungan'] == 'x1') {
+                                            foreach ($a['jawaban'] as $d) {
+                                                if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
+                                                    $jumlahx1 += $d['pertanyaan_' . $c['id']];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
 
-                                $rnkx1 = rank_avg($array_x1[$noaa], $array_x1);
-                                $rnkx2 = rank_avg($array_x2[$noaa], $array_x2);
-                                $rnky = rank_avg($array_y[$noaa], $array_y);
+                                $jumlahx2 = 0;
+                                foreach ($soal as $c) {
+                                    if (isset($c['hubungan'])) {
+                                        if ($c['hubungan'] == 'x2') {
+                                            foreach ($a['jawaban'] as $d) {
+                                                if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
+                                                    $jumlahx2 += $d['pertanyaan_' . $c['id']];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
 
-                                echo '<td>' . $array_x1[$noaa] . ' </td>';
-                                echo '<td>' . $array_x2[$noaa] . ' </td>';
-                                echo '<td>' . $array_y[$noaa] . ' </td>';
-                                echo '<td>' . $rnkx1 . ' </td>';
-                                echo '<td>' . $rnkx2 . ' </td>';
-                                echo '<td>' . $rnky . ' </td>';
-                                echo '<td>' .  $rnkx1 - $rnky . ' </td>';
-                                echo '<td>' . pow($rnkx1 - $rnky, 2) . ' </td>';
-                                echo '<td>' .  $rnkx2 - $rnky . ' </td>';
-                                echo '<td>' . pow($rnkx2 - $rnky, 2) . ' </td>';
 
-                                $d1 += pow($rnkx1 - $rnky, 2);
-                                $d2 += pow($rnkx2 - $rnky, 2);
+                                $jumlahy = 0;
+                                foreach ($soal as $c) {
+                                    if (isset($c['hubungan'])) {
+                                        if ($c['hubungan'] == 'y') {
+                                            foreach ($a['jawaban'] as $d) {
+                                                if (isset($d['pertanyaan_' . $c['id']]) && in_array($c['id'], $datavalid)) {
+                                                    $jumlahy += $d['pertanyaan_' . $c['id']];
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                                 ?>
-
+                                <td>
+                                    <?= $jumlahx1 ?>
+                                </td>
+                                <td>
+                                    <?= $jumlahx2 ?>
+                                </td>
+                                <td>
+                                    <?= $jumlahy ?>
+                                </td>
+                                <td><?= $rnkx1 = rank(arrayjml('x1', $datavalid), $jumlahx1)[0]; ?></td>
+                                <td><?= $rnkx2 = rank(arrayjml('x2', $datavalid), $jumlahx2)[0]; ?></td>
+                                <td><?= $rnky = rank(arrayjml('y', $datavalid), $jumlahy)[0]; ?></td>
+                                <td><?= $rnkx1 - $rnky; ?></td>
+                                <td><?= pow($rnkx1 - $rnky, 2); ?></td>
+                                <td><?= $rnkx2 - $rnky; ?></td>
+                                <td><?= pow($rnkx2 - $rnky, 2); ?></td>
                             </tr>
 
-                        <?php } ?>
 
-
+                        <?php
+                            $d1 += pow($rnkx1 - $rnky, 2);
+                            $d2 += pow($rnkx2 - $rnky, 2);
+                        } ?>
                         <tr>
                             <th colspan="8">Jumlah</th>
                             <th><?= $d1 ?></th>
                             <th></th>
                             <th><?= $d2 ?></th>
                         </tr>
-
-
-
                     </table>
                     <br><br>
                     <b>Diketahui :</b><br>
@@ -185,7 +258,7 @@ function rank_avg($value, $array, $order = 0)
                     $d1bil1 = 6 * $d1;
                     $d1bil2 = count($isi) * (pow(count($isi), 2) - 1);
                     ?>
-                    rs = <?= $hasilnyax1 = round(1 - ($d1bil1 / $d1bil2), 3)  ?><br>
+                    rs = <?= $hasilnyax1 = 1 - ($d1bil1 / $d1bil2)  ?><br>
                     <img src="https://2.bp.blogspot.com/-jdTucUHYxz4/TaGFnBhqrHI/AAAAAAAAAds/XUIUhvLyF5k/s1600/tabel%2Barti%2Bkorelasi.PNG"><br>
                     Maka korelasinya adalah <?php if ($hasilnyax1 >= 1) {
                                                 echo '<b style="color:green">Sempurna</b>';
@@ -220,21 +293,21 @@ function rank_avg($value, $array, $order = 0)
                     $d1bil11 = 6 * $d2;
                     $d1bil12 = count($isi) * (pow(count($isi), 2) - 1);
                     ?>
-                    rs = <?= $hasilnyax2 = round(1 - ($d1bil11 / $d1bil12), 3)  ?><br>
+                    rs = <?= $hasilnyax2 = 1 - ($d1bil11 / $d1bil12)  ?><br>
                     <img src="https://2.bp.blogspot.com/-jdTucUHYxz4/TaGFnBhqrHI/AAAAAAAAAds/XUIUhvLyF5k/s1600/tabel%2Barti%2Bkorelasi.PNG"><br>
                     Maka korelasinya adalah <?php if ($hasilnyax2 >= 1) {
                                                 echo '<b style="color:green">Sempurna</b>';
                                                 $rankspearmkes2 = '<b style="color:green">Sempurna</b>';
-                                            } elseif ($hasilnyax2 >= 0.75 && $hasilnyax2 < 1) {
+                                            } elseif ($hasilnyax2 >= 0.75) {
                                                 echo '<b style="color:#97ad09">Sangat Kuat</b>';
                                                 $rankspearmkes2 =  '<b style="color:#97ad09">Sangat Kuat</b>';
-                                            } elseif ($hasilnyax2 >= 0.50 && $hasilnyax2 < 0.75) {
+                                            } elseif ($hasilnyax2 >= 0.50) {
                                                 echo '<b style="color:#708100">Kuat</b>';
                                                 $rankspearmkes2 =  '<b style="color:#708100">Kuat</b>';
-                                            } elseif ($hasilnyax2 >= 0.25 && $hasilnyax2 < 0.50) {
+                                            } elseif ($hasilnyax2 >= 0.25) {
                                                 echo '<b style="color:#ffa700">Cukup</b>';
-                                                $rankspearmkes2 =  '<b style="color:#ffa700">Cukup</b>';
-                                            } elseif ($hasilnyax2 < 0.25 && $hasilnyax2 < 0.25) {
+                                                $rankspearmkes =  '<b style="color:#ffa700">Cukup</b>';
+                                            } elseif ($hasilnyax2 < 0.25) {
                                                 echo '<b style="color:red">Sangat Lemah</b>';
                                                 $rankspearmkes2 =  '<b style="color:red">Sangat Lemah</b>';
                                             } elseif ($hasilnyax2 <= 0) {
@@ -276,20 +349,6 @@ function rank_avg($value, $array, $order = 0)
                 </div>
             </div>
         </div>
-
-        <input type="button" onclick="printDiv('rank')" value="Print" />
     </div>
 </div>
-<script>
-    function printDiv(divName) {
-        var printContents = document.getElementById(divName).innerHTML;
-        var originalContents = document.body.innerHTML;
-
-        document.body.innerHTML = printContents;
-
-        window.print();
-
-        document.body.innerHTML = originalContents;
-    }
-</script>
 <br><br><br>
