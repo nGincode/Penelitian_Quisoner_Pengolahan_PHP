@@ -13,7 +13,8 @@ Rename Folder "data_DELETE" menjadi "data",
 Database penyimpanan yang digunakan adalah file JSON,
 Untuk mengakses data yang telah diisi dan analisis kunjungi /hasil misal : www.namadomain.com/hasil
 
-##Instalasi ke lokal computer
+## Instalasi ke lokal computer
+
 1. Instal Xampp Tutorial : https://www.niagahoster.co.id/blog/cara-instal-xampp/
 2. Setelah terinstal xampp download file ini, klik Code di pojok kanan atas, klik download zip
 3. Extrak file zip tersebut pada folder C:\xampp\htdocs
