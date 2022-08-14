@@ -1,20 +1,3 @@
-<?php
-
-
-$filesoal = file_get_contents("../data/json/soal.json");
-$soal = json_decode($filesoal, TRUE);
-
-
-$fileisi = file_get_contents("../data/json/isi.json");
-$isi = json_decode($fileisi, TRUE);
-
-
-$filertable = file_get_contents("../data/json/rtable.json");
-$rtbl = json_decode($filertable, TRUE);
-?>
-
-
-
 <div class="formbg-outer">
     <div class="formbg">
         <div class="judul" onclick="toggle_visibility('Validitas')">Uji Validitas & Reabilitas
