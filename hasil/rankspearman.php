@@ -207,11 +207,44 @@ function rank_avg($value, $array, $order = 0)
                                                 $rankspearmkes =  '<b style="color:red">Tidak Ada</b>';
                                             }
 
-                                            $kesmpulan[] = array(
-                                                'nama' => 'X1',
-                                                'x' => $rankspearmkes
-                                            );
                                             ?>
+                    <br><br>
+                    <b>Uji Signifikan 5%</b><br>
+                    <b>Diketahui :</b><br>
+                    rs = <?= $hasilnyax1 ?><br>
+                    n = <?= count($isi) ?><br>
+                    <b>Rumus :</b><br>
+                    Untuk n > 30<br>
+                    <img src="http://4.bp.blogspot.com/_lKlbyrdPRCo/S9eKLwSbLOI/AAAAAAAAAbU/pRV9IdN0MSI/s320/z+spearman.gif"><br>
+                    Untuk n ≤ 30 <br>
+                    <img src="http://3.bp.blogspot.com/_lKlbyrdPRCo/S9eKLXk43jI/AAAAAAAAAbE/l2ApddSzyvA/s320/t+spearman.gif"><br>
+                    <b>Penyelesaian :</b><br>
+                    z = <?= $hasilnyax1 ?> √<?= count($isi) ?> - 1<br>
+                    z = <?= $hasilnyax1 ?> √<?= count($isi) - 1 ?><br>
+                    zhitung = <?= $zhitung = round($hasilnyax1 * sqrt(count($isi) - 1), 2) ?><br><br>
+
+                    ztabel = 5% = 0,05<br>
+                    2 arah (2 Tailed) = 0,025<br>
+                    Maka ztabel adalah 1,9 + 0,06 = 1,96 <a href="../data/tables.xls">Cek</a><br>
+
+                    Maka Kesimpulannya zhitung
+                    <?php if ($zhitung <= 1.96) {
+                        $sig = true;
+                        echo '= ' . $zhitung . ' < ztabel = 1.96  (<b style="color:red">Tidak Signifikan</b>)';
+                    } else {
+                        $sig = false;
+                        echo '= ' . $zhitung . ' > ztabel = 1.96 (<b style="color:green">Signifikan</b>)';
+                    }
+
+                    $kesmpulan[] = array(
+                        'nama' => 'X1',
+                        'x' => $rankspearmkes,
+                        'sig' => $sig
+                    );
+                    ?>
+
+
+
                     <br><br>
                     2.) Hubungan X2 dengan Y<br>
                     rs = 6(<?= $d2 ?>)/<?= count($isi) ?>(<?= count($isi) ?><sup>2</sup> - 1)<br>
@@ -241,13 +274,45 @@ function rank_avg($value, $array, $order = 0)
                                                 echo '<b style="color:red">Tidak Ada</b>';
                                                 $rankspearmkes2 =  '<b style="color:red">Tidak Ada</b>';
                                             }
-
-                                            $kesmpulan[] = array(
-                                                'nama' => 'X2',
-                                                'x' => $rankspearmkes2
-                                            );
                                             ?>
                 </div>
+
+                <br><br>
+                <b>Uji Signifikan 5%</b><br>
+                <b>Diketahui :</b><br>
+                rs = <?= $hasilnyax2 ?><br>
+                n = <?= count($isi) ?><br>
+                <b>Rumus :</b><br>
+                Untuk n > 30<br>
+                <img src="http://4.bp.blogspot.com/_lKlbyrdPRCo/S9eKLwSbLOI/AAAAAAAAAbU/pRV9IdN0MSI/s320/z+spearman.gif"><br>
+                Untuk n ≤ 30 <br>
+                <img src="http://3.bp.blogspot.com/_lKlbyrdPRCo/S9eKLXk43jI/AAAAAAAAAbE/l2ApddSzyvA/s320/t+spearman.gif"><br>
+                <b>Penyelesaian :</b><br>
+                z = <?= $hasilnyax2 ?> √<?= count($isi) ?> - 1<br>
+                z = <?= $hasilnyax2 ?> √<?= count($isi) - 1 ?><br>
+                zhitung = <?= $zhitung2 = round($hasilnyax2 * sqrt(count($isi) - 1), 2) ?><br><br>
+
+                ztabel = 5% = 0,05<br>
+                2 arah (2 Tailed) = 0,025<br>
+                Maka ztabel adalah 1,9 + 0,06 = 1,96 <a href="../data/tables.xls">Cek</a><br>
+
+                Maka Kesimpulannya zhitung
+                <?php if ($zhitung2 <= 1.96) {
+                    $sig2 = true;
+                    echo '= ' . $zhitung2 . ' < ztabel = 1.96  (<b style="color:red">Tidak Signifikan</b>)';
+                } else {
+                    $sig2 = false;
+                    echo '= ' . $zhitung2 . ' > ztabel = 1.96 (<b style="color:green">Signifikan</b>)';
+                }
+
+
+                $kesmpulan[] = array(
+                    'nama' => 'X2',
+                    'x' => $rankspearmkes2,
+                    'sig' => $sig2
+                );
+                ?>
+
 
             </div>
         </div>
@@ -261,6 +326,7 @@ function rank_avg($value, $array, $order = 0)
                         <tr>
                             <th style="text-align: center;">Variabel</th>
                             <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Sig</th>
                         </tr>
                         <?php
                         foreach ($kesmpulan as  $kesmpulanv) {
@@ -270,6 +336,7 @@ function rank_avg($value, $array, $order = 0)
                             <tr>
                                 <td><b><?= $kesmpulanv['nama']  ?> -> Y</b></td>
                                 <td><?= $kesmpulanv['x']  ?></td>
+                                <td><?= $kesmpulanv['sig'] ? '<b style="color:green">Signifikan</b>' :  '<b style="color:green">Signifikan</b>'  ?></td>
                             </tr>
                         <?php     } ?>
                     </table>
