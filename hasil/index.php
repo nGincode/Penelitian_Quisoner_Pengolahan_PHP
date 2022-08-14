@@ -176,18 +176,12 @@ $rtbl = json_decode($filertable, TRUE);
                 </div>
 
                 <?php
-                $fileisi = file_get_contents("../data/json/isi.json");
-                $isi =  json_decode($fileisi, TRUE);
-
-
-
-
                 if (count($isi) > 3) {
                 ?>
-                    <?php include 'dataresponden.php'; ?>
-                    <?php include 'validitas&reabilitas.php'; ?>
-                    <?php include 'rankspearman.php'; ?>
-                    <?php include 'efektivitas.php'; ?>
+                    <?php require  'dataresponden.php'; ?>
+                    <?php require  'validitas&reabilitas.php'; ?>
+                    <?php require  'rankspearman.php'; ?>
+                    <?php require  'efektivitas.php'; ?>
                 <?php  } else {
                     echo '<center><h1><b>Responden Terlalu Sedikit</b></h1></center>';
                 } ?>
