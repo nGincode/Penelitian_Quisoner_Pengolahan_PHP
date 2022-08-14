@@ -1,5 +1,6 @@
 {
     "require": {
-        "pcrov/jsonreader": "^1.0"
+        "pcrov/jsonreader": "^1.0",
+        "halaxa/json-machine": "^1.1"
     }
 }

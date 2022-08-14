@@ -19,6 +19,10 @@ class ComposerStaticInitd41e52a1f65e528e1f2162f80e44c04a
         array (
             'Psr\\Http\\Message\\' => 17,
         ),
+        'J' => 
+        array (
+            'JsonMachine\\' => 12,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
@@ -29,6 +33,10 @@ class ComposerStaticInitd41e52a1f65e528e1f2162f80e44c04a
         'Psr\\Http\\Message\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'JsonMachine\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/halaxa/json-machine/src',
         ),
     );
 

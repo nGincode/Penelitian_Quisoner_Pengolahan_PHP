@@ -1,28 +1,37 @@
 <?php
-require_once '../vendor/autoload.php';
+// require_once '../vendor/autoload.php';
 
-use pcrov\JsonReader\JsonReader;
+// use pcrov\JsonReader\JsonReader;
+// use \JsonMachine\Items;
 
-function RenderJson($lokasi)
-{
-    $reader = new JsonReader();
-    $reader->open($lokasi);
+// function RenderJson($lokasi)
+// {
+//     $reader = new JsonReader();
+//     $reader->open($lokasi);
 
-    $reader->read(); // Outer array.
-    $depth = $reader->depth(); // Check in a moment to break when the array is done.
-    $reader->read(); // Step to the first object.
-    $isi = [];
-    do {
-        $isi[] = $reader->value(); // Do your thing.
-    } while ($reader->next() && $reader->depth() > $depth); // Read each sibling.
-    $reader->close();
+//     $reader->read(); // Outer array.
+//     $depth = $reader->depth(); // Check in a moment to break when the array is done.
+//     $reader->read(); // Step to the first object.
+//     $isi = [];
+//     do {
+//         $isi[] = $reader->value(); // Do your thing.
+//     } while ($reader->next() && $reader->depth() > $depth); // Read each sibling.
+//     $reader->close();
 
-    return $isi;
-}
+//     return $isi;
+// }
 
-$soal = RenderJson("../data/json/soal.json");
-$isi = RenderJson("../data/json/isi.json");
-$rtbl = RenderJson("../data/json/rtable.json");
+// function RenderJson2($lokasi)
+// {
+//     return $data = Items::fromFile("../data/json/rtable.json");
+// }
+
+// $soal = RenderJson("../data/json/soal.json");
+// $isi = RenderJson("../data/json/isi.json");
+// $rtbl = RenderJson("../data/json/rtable.json");
+
+require 'array.php';
+
 ?>
 <html>
 
