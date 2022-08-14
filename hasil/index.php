@@ -110,13 +110,13 @@
 </head>
 
 <body>
-    <div class="loaderbg">
+    <!-- <div class="loaderbg">
         <div class="loader">
             <span></span>
             <span></span>
             <span></span>
         </div>
-    </div>
+    </div> -->
     <div class="login-root">
         <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
             <div class="loginbackground box-background--white padding-top--64">
