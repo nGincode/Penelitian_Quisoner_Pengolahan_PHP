@@ -6,5 +6,6 @@ $vendorDir = dirname(__DIR__);
 $baseDir = dirname($vendorDir);
 
 return array(
-    'JsonMachine\\' => array($vendorDir . '/halaxa/json-machine/src'),
+    'pcrov\\JsonReader\\' => array($vendorDir . '/pcrov/jsonreader/src'),
+    'Psr\\Http\\Message\\' => array($vendorDir . '/psr/http-message/src'),
 );

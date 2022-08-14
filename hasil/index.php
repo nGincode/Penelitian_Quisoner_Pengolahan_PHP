@@ -1,19 +1,28 @@
 <?php
 require_once '../vendor/autoload.php';
 
-use \JsonMachine\Items;
+use pcrov\JsonReader\JsonReader;
 
-$filesoal = file_get_contents("../data/json/soal.json");
-$soal = json_decode($filesoal, TRUE);
+function RenderJson($lokasi)
+{
+    $reader = new JsonReader();
+    $reader->open($lokasi);
 
+    $reader->read(); // Outer array.
+    $depth = $reader->depth(); // Check in a moment to break when the array is done.
+    $reader->read(); // Step to the first object.
+    $isi = [];
+    do {
+        $isi[] = $reader->value(); // Do your thing.
+    } while ($reader->next() && $reader->depth() > $depth); // Read each sibling.
+    $reader->close();
 
-$fileisi = file_get_contents("../data/json/isi.json");
-$isi = json_decode($fileisi, TRUE);
+    return $isi;
+}
 
-
-$filertable = file_get_contents("../data/json/rtable.json");
-$rtbl = json_decode($filertable, TRUE);
-
+$soal = RenderJson("../data/json/soal.json");
+$isi = RenderJson("../data/json/isi.json");
+$rtbl = RenderJson("../data/json/rtable.json");
 ?>
 <html>
 
@@ -168,12 +177,14 @@ $rtbl = json_decode($filertable, TRUE);
                     </div>
                 </div>
             </div>
+
             <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
                 <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
                     <center>
                         <h1><a href="http://fembinurilham.my.id/" rel="dofollow" style="color: #26263e;">PENGELOLAHAN KUISONER<br>by Fembi Nur Ilham</a></h1>
                     </center>
                 </div>
+
 
                 <?php
                 if (count($isi) > 3) {

@@ -1,65 +1,167 @@
 {
     "packages": [
         {
-            "name": "halaxa/json-machine",
-            "version": "1.1.1",
-            "version_normalized": "1.1.1.0",
+            "name": "pcrov/jsonreader",
+            "version": "1.0.2",
+            "version_normalized": "1.0.2.0",
             "source": {
                 "type": "git",
-                "url": "https://github.com/halaxa/json-machine.git",
-                "reference": "b4086dfe72670df060d2bd481f01bc9e450a5640"
+                "url": "https://github.com/pcrov/JsonReader.git",
+                "reference": "4b282c9623dfb358e57e1b36d9588deed22a1a99"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/halaxa/json-machine/zipball/b4086dfe72670df060d2bd481f01bc9e450a5640",
-                "reference": "b4086dfe72670df060d2bd481f01bc9e450a5640",
+                "url": "https://api.github.com/repos/pcrov/JsonReader/zipball/4b282c9623dfb358e57e1b36d9588deed22a1a99",
+                "reference": "4b282c9623dfb358e57e1b36d9588deed22a1a99",
                 "shasum": ""
             },
             "require": {
-                "php": ">=7.0"
+                "ext-intl": "*",
+                "pcrov/unicode": "^0.1",
+                "php": ">=7.3",
+                "psr/http-message": "^1"
             },
             "require-dev": {
-                "ext-json": "*",
-                "friendsofphp/php-cs-fixer": "^3.0",
-                "phpunit/phpunit": "^8.0"
+                "nst/jsontestsuite": "^1",
+                "phpunit/phpunit": "^9.5"
             },
-            "suggest": {
-                "ext-json": "To run JSON Machine out of the box without custom decoders.",
-                "guzzlehttp/guzzle": "To run example with GuzzleHttp"
-            },
-            "time": "2022-03-03T11:02:11+00:00",
+            "time": "2021-11-21T12:11:18+00:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
                 "psr-4": {
-                    "JsonMachine\\": "src/"
-                },
-                "exclude-from-classmap": [
-                    "src/autoloader.php"
+                    "pcrov\\JsonReader\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Crovella",
+                    "role": "developer"
+                }
+            ],
+            "description": "JSON Pull Parser",
+            "homepage": "https://github.com/pcrov/jsonreader",
+            "keywords": [
+                "json",
+                "parser",
+                "pull",
+                "streaming"
+            ],
+            "support": {
+                "issues": "https://github.com/pcrov/JsonReader/issues",
+                "source": "https://github.com/pcrov/JsonReader/tree/1.0.2"
+            },
+            "install-path": "../pcrov/jsonreader"
+        },
+        {
+            "name": "pcrov/unicode",
+            "version": "0.1.1",
+            "version_normalized": "0.1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/pcrov/Unicode.git",
+                "reference": "28cef671af310806afe98abada5e12774bd0ac64"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/pcrov/Unicode/zipball/28cef671af310806afe98abada5e12774bd0ac64",
+                "reference": "28cef671af310806afe98abada5e12774bd0ac64",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.3"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.4.0"
+            },
+            "time": "2020-10-26T13:33:18+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
-                "Apache-2.0"
+                "MIT"
             ],
             "authors": [
                 {
-                    "name": "Filip Halaxa",
-                    "email": "filip@halaxa.cz"
+                    "name": "Paul Crovella"
                 }
             ],
-            "description": "Efficient, easy-to-use and fast JSON pull parser",
+            "description": "Miscellaneous Unicode utility functions",
+            "homepage": "https://github.com/pcrov/unicode",
+            "keywords": [
+                "unicode",
+                "utf-8"
+            ],
             "support": {
-                "issues": "https://github.com/halaxa/json-machine/issues",
-                "source": "https://github.com/halaxa/json-machine/tree/1.1.1"
+                "issues": "https://github.com/pcrov/Unicode/issues",
+                "source": "https://github.com/pcrov/Unicode/tree/0.1.1"
             },
-            "funding": [
+            "install-path": "../pcrov/unicode"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "1.0.1",
+            "version_normalized": "1.0.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "reference": "f6561bf28d520154e4b0ec72be95418abe6d9363",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "time": "2016-08-06T14:39:51+00:00",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
                 {
-                    "url": "https://ko-fi.com/G2G57KTE4",
-                    "type": "other"
+                    "name": "PHP-FIG",
+                    "homepage": "http://www.php-fig.org/"
                 }
             ],
-            "install-path": "../halaxa/json-machine"
+            "description": "Common interface for HTTP messages",
+            "homepage": "https://github.com/php-fig/http-message",
+            "keywords": [
+                "http",
+                "http-message",
+                "psr",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-message/tree/master"
+            },
+            "install-path": "../psr/http-message"
         }
     ],
     "dev": true,
