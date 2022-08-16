@@ -6,6 +6,7 @@
 
         </div>
         <div id="Validitas" style="display: none ;" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown">
+            <!-- <div id="Validitas" class="formbg-inner padding-horizontal--48  animate__animated animate__fadeInDown"> -->
             <center>
                 <h2>Uji Validitas & Reabilitas<br>
                     Nilai Taraf Nyata 5%</h2><br>
@@ -16,26 +17,6 @@
 
                 <h3>> Uji Validitas</h3><br>
                 <?php
-
-                $x1tabel = 0;
-                $x2tabel = 0;
-                $ytabel = 0;
-                foreach ($soal as $caritabel) {
-                    if (isset($caritabel['hubungan'])) {
-                        if ($caritabel['hubungan'] == 'x1') {
-                            $x1tabel++;
-                        }
-
-                        if ($caritabel['hubungan'] == 'x2') {
-                            $x2tabel++;
-                        }
-
-                        if ($caritabel['hubungan'] == 'y') {
-                            $ytabel++;
-                        }
-                    }
-                }
-
                 $noprtanyaan = 10;
                 if (count($isi) > 3) {
                     $allujivaliditas = [];
@@ -72,14 +53,33 @@
                                                     $scorejwb = 0;
                                                     foreach ($x['jawaban'] as $no_w => $w) {
                                                         if ($z['judul']['bagian'] == $w['bagian']) {
-                                                            $no_wwww = $no_w + 1;
-                                                            $scorejwb += $w['pertanyaan_' . $no_wwww];
+                                                            // $no_wwww = $no_w + 1;
+                                                            // $scorejwb += $w['pertanyaan_' . $no_wwww];
                                                             if (isset($w['pertanyaan_' . $y['id']])) {
                                                                 $prtnyvalid = $y['id'];
                                                                 $jwbprt = $w['pertanyaan_' . $y['id']];
                                                             }
                                                         }
+
+                                                        for ($i = 10; $i < 51; $i++) {
+                                                            if (isset($w['pertanyaan_' . $i])) {
+                                                                $scorejwb += $w['pertanyaan_' . $i];
+                                                            }
+                                                        }
                                                     }
+
+
+                                                    // foreach ($isi as $xx) {
+                                                    //     foreach ($xx['jawaban'] as $no_wx => $wx) {
+                                                    //         if (isset($wx['pertanyaan_4'])) {
+                                                    //             if ($usernm == $wx['pertanyaan_4']) {
+                                                    //                 if (isset($wx['pertanyaan_' . $y['id']])) {
+                                                    //                     print_r($wx['pertanyaan_' . $y['id']]);
+                                                    //                 }
+                                                    //             }
+                                                    //         }
+                                                    //     }
+                                                    // }
                                                     if (isset($jwbprt)) {
                                                         $x_jwbprt += $jwbprt;
                                                         $y_scorejwb += $scorejwb;
@@ -185,33 +185,11 @@
                                                                     }  ?><br>
                                                 <?php
                                                 $rtabel;
-
-                                                if (isset($y['hubungan'])) {
-                                                    if ($y['hubungan'] == 'x1') {
-                                                        foreach ($rtbl as $rtblv) {
-                                                            if ($rtblv['n'] == $x1tabel - 2) {
-                                                                $rtabel = $rtblv['rtable'];
-                                                            }
-                                                        }
-                                                    }
-
-                                                    if ($y['hubungan'] == 'x2') {
-                                                        foreach ($rtbl as $rtblv) {
-                                                            if ($rtblv['n'] == $x2tabel - 2) {
-                                                                $rtabel = $rtblv['rtable'];
-                                                            }
-                                                        }
-                                                    }
-
-                                                    if ($y['hubungan'] == 'y') {
-                                                        foreach ($rtbl as $rtblv) {
-                                                            if ($rtblv['n'] == $ytabel - 2) {
-                                                                $rtabel = $rtblv['rtable'];
-                                                            }
-                                                        }
+                                                foreach ($rtbl as $rtblv) {
+                                                    if ($rtblv['n'] == count($isi) - 2) {
+                                                        $rtabel = $rtblv['rtable'];
                                                     }
                                                 }
-
                                                 ?>
                                                 r Table : <?= $rtabel ?><br>
                                                 Maka rHitung
@@ -224,6 +202,7 @@
                                                 }
                                                 $ujivaliditas['pertanyaan'] = $prtnyvalid;
                                                 $ujivaliditas['ket'] = $keet;
+                                                $ujivaliditas['skor'] = round($rhitung, 3) . ($keet == 'VALID' ? ' > ' : ' < ') . round($rtabel, 3);
                                                 ?>
                                                 <!-- rxy=<?= (15 * 1054 - 43 * 334) / (sqrt(15 * 145 - pow(43, 2)) * sqrt(15 * 8230 - pow(334, 2))) ?> -->
 
@@ -483,7 +462,8 @@
                     <?php
                         $kesimpulanreabilitas[] = array(
                             'no' => $variabelnyav,
-                            'ket' => $ketreabilitas
+                            'ket' => $ketreabilitas,
+                            'skor' => $hasilreabilitas
                         );
                     } ?>
                 </div>
@@ -507,6 +487,7 @@
                         <tr>
                             <th style="text-align: center;">Pertanyaan</th>
                             <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Nilai</th>
                         </tr>
                         <?php
                         $jmldatavalid = 0;
@@ -525,6 +506,7 @@
                                                 echo '<b style="color:red">Tidak VALID</b>';
                                                 $jmldatatdkvalid++;
                                             }  ?></td>
+                                        <td><?= $allujivaliditasv['skor'] ?></td>
                                     </tr>
                         <?php }
                             }
@@ -540,6 +522,7 @@
                         <tr>
                             <th style="text-align: center;">Variabel</th>
                             <th style="text-align: center;">Status</th>
+                            <th style="text-align: center;">Nilai</th>
                         </tr>
                         <?php
 
@@ -551,6 +534,7 @@
                             <tr>
                                 <td><b><?= $kesimpulanreabilitasv['no']  ?></b></td>
                                 <td><?= $kesimpulanreabilitasv['ket']  ?></td>
+                                <td><?= $kesimpulanreabilitasv['skor']  ?></td>
                             </tr>
                         <?php
                         } ?>

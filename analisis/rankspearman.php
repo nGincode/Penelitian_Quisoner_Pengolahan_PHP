@@ -224,7 +224,8 @@ function rank_avg($value, $array, $order = 0)
                     $kesmpulan[] = array(
                         'nama' => 'X1',
                         'x' => $rankspearmkes,
-                        'sig' => $sig
+                        'sig' => $sig,
+                        'skor' => $zhitung . ($zhitung > 1.96 ? ' > ' : ' < ') . '1.96'
                     );
                     ?>
 
@@ -294,7 +295,8 @@ function rank_avg($value, $array, $order = 0)
                 $kesmpulan[] = array(
                     'nama' => 'X2',
                     'x' => $rankspearmkes2,
-                    'sig' => $sig2
+                    'sig' => $sig2,
+                    'skor' => $zhitung2 . ($zhitung > 1.96 ? ' > ' : ' < ') . '1.96'
                 );
                 ?>
 
@@ -307,11 +309,12 @@ function rank_avg($value, $array, $order = 0)
             <div class="row" style="position: relative; margin-top:-30px;">
                 <div class="column" style="width:100%">
                     <h4>Kesimpulan</h4><br>
-                    <table id="customers" style="max-width: 300px;">
+                    <table id="customers" style="max-width:400px;">
                         <tr>
                             <th style="text-align: center;">Variabel</th>
                             <th style="text-align: center;">Status</th>
                             <th style="text-align: center;">Sig</th>
+                            <th style="text-align: center;">Nilai Sig</th>
                         </tr>
                         <?php
                         foreach ($kesmpulan as  $kesmpulanv) {
@@ -322,6 +325,7 @@ function rank_avg($value, $array, $order = 0)
                                 <td><b><?= $kesmpulanv['nama']  ?> -> Y</b></td>
                                 <td><?= $kesmpulanv['x']  ?></td>
                                 <td><?= $kesmpulanv['sig'] ? '<b style="color:green">Signifikan</b>' :  '<b style="color:green">Signifikan</b>'  ?></td>
+                                <td><?= $kesmpulanv['skor'] ?></td>
                             </tr>
                         <?php     } ?>
                     </table>
@@ -329,7 +333,7 @@ function rank_avg($value, $array, $order = 0)
             </div>
         </div>
 
-        <input type="button" onclick="printDiv('rank')" value="Print" />
+        <!-- <input type="button" onclick="printDiv('rank')" value="Print" /> -->
     </div>
 </div>
 <script>

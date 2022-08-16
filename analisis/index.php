@@ -197,7 +197,7 @@ $rtbl = RenderJson("../data/json/rtable.json");
                 if (count($isi) > 3) {
                 ?>
                     <?php require  'dataresponden.php'; ?>
-                    <?php require  'validitas&reabilitas.php'; ?>
+                    <?php require  'validitas&reabilitas_v3.php'; ?>
                     <?php require  'rankspearman.php'; ?>
                     <?php require  'efektivitas.php'; ?>
                 <?php  } else {
